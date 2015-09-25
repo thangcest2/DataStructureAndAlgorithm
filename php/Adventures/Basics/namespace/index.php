@@ -6,7 +6,7 @@
  */
 require 'ThangTdFoo.php';
 require 'ThangTdBar.php';
-require 'RealBar.php';
+require 'subNamespace/RealBar.php';
 require 'subNamespace/RealFoo.php';
 
 $a = new Thangtd\ThangTdFoo();

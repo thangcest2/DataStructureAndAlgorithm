@@ -22,19 +22,20 @@ function solution($A) {
         $temp = $A[$index]; $A[$index] = $A[$i]; $A[$i] = $temp;
         for ($q = $i+1; $q < count($A)-1; $q++)
           if ($A[$q]>$A[$q+1]){
-            return 'impossible';
+            return false;
           }
-        return 'possible';
+        return true;
       }
 
     }
   }
-  return 'possible';
+  return true;
 }
 
 $A = [2,4,3,3,3,2,5]; // pos
 
 // $A = [1, 3, 5, 3, 4];<!-- // impos-->
-echo solution($A);
+echo solution($A) ? 'posssible' : 'impossible';
+echo PHP_EOL;
 
 ?>

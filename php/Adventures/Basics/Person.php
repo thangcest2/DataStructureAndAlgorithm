@@ -29,9 +29,14 @@ class Person {
 
 class Staff extends Person {
   private $_major;
+  private $_preName = '';
 
-  public function setName($name, $preName) {
-    $this->_name = $preName . $name;
+  public function setPreName($preName) {
+    $this->_preName = $preName;
+  }
+
+  public function setName($name) {
+    $this->_name = $this->_preName . $name;
   }
 
   public function setMajor($major){
@@ -50,8 +55,10 @@ class Staff extends Person {
 
 $person = new Person();
 $person->setName('Anbe');
+//$person->setName('Anbe');
 echo $person->getName();
 // $name is set
 //$person->setBirth('2910');
 
 //echo $person->whoAmI();
+var_dump([1,2]);
