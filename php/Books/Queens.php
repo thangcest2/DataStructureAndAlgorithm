@@ -1,12 +1,17 @@
 <?php
 
-define('SIZE', (int)$argv[1]);
-
 /**
  * @desc: Queen math. Recursive loop to get all possible results.
- * @pre: input size của chessboard.
+ * @pre: input size of chessboard.
  * @post: draw
-*/
+ */
+
+if (!isset($argv[1])) {
+  define('SIZE', 8);
+} else {
+  define('SIZE', (int)$argv[1]);
+}
+
 
 class Queens {
   public static $rows = [];
@@ -27,7 +32,6 @@ class Queens {
     for ($k = -SIZE; $k < SIZE; $k++) {
       self::$duongcheo2Marked[$k] = true;
     }
-    self::queensOut(0);
   }
 
   public static function queensOut($queenNo) {
@@ -75,6 +79,7 @@ class Queens {
 }
 
 Queens::init();
+Queens::queensOut(0);
 ?>
 
 
