@@ -1,0 +1,127 @@
+#!/usr/bin/env php
+
+<?php
+/**
+ * Add folder + its files
+ *
+ * $argv[1] required: target folder path
+ * $argv[1] required: namespace key
+ *
+ * eg: ./generateFolder ../../php/Adventures/DesignPatterns/ designPatterns
+ */
+
+
+require_once 'common.php';
+
+if (!isset($argv[1])) {
+    echo 'Please specify target folder path.' . PHP_EOL;
+    die();
+}
+if (!isset($argv[2]) || !isset($namespaces[$argv[2]])) {
+    echo 'Please specify correct init namespace.' . PHP_EOL;
+    die();
+}
+$configFile = $argv[1] . '/__listDirs.php';
+
+if (!file_exists($configFile)) {
+    echo 'File ' . $configFile . ' not found' . PHP_EOL;
+    die();
+}
+
+$namespacePrefix = $namespaces[$argv[2]];
+$path = realpath($argv[1]) . '/';
+$dirs = require($configFile);
+
+run($dirs, $path, $namespacePrefix);
+
+/**
+ * Recursively create folder + files and subfolder + files
+ *
+ * @param array $dirConfig
+ * @param string $path
+ * @param string $namespace
+ */
+function run($dirConfig = [], $path = '', $namespace = '') {
+    if ($path[strlen($path) - 1] !== '/') {
+        $path .= '/';
+    }
+    foreach ($dirConfig as $dirName => $subDirName) {
+        $dir = $path . $dirName;
+        if (!is_numeric($dirName)) {
+            if (!is_dir($dir)) {
+                mkdir($dir);
+            }
+
+            if (is_array($subDirName)) {
+                //in case of array
+                run($subDirName, $dir, empty($namespace) ? "$dirName" : "$namespace\\$dirName");
+            }
+        } else {
+            //in case of file name
+            $newFile = $path . '/' . $subDirName . '.php';
+            if (!file_exists($newFile)) {
+                $classOrInterface = 'class';
+                if (strpos($subDirName, 'Interface') !== false) {
+                    $classOrInterface = 'interface';
+                }
+                if (strpos($subDirName, 'Abstract') !== false) {
+                    $classOrInterface = 'abstract class';
+                }
+
+                file_put_contents($newFile, genInitContent($subDirName, $namespace, $classOrInterface));
+            }
+        }
+    }
+
+}
+
+function genInitContent($fileName, $namespace, $type = 'class') {
+    $detail = appendDetails(false, true);
+    $initContent = $initContent = <<<CONTENT
+<?php
+$detail
+
+namespace $namespace;
+
+/**
+* @$type $fileName
+*/
+
+$type $fileName {
+
+}
+CONTENT;
+
+    return $initContent;
+}
+
+function appendDetails($file, $textOnly = true) {
+    $detail = <<<DETAIL
+/*
+ +------------------------------------------------------------------------+
+ | ThangTD Adventures                                                     |
+ +------------------------------------------------------------------------+
+ | Source (https://github.com/thangcest2/DataStructureAndAlgorithm)       |
+ +------------------------------------------------------------------------+
+ | In love with my wife Mai Phuong Nguyen                                 |
+ +------------------------------------------------------------------------+
+ | Authors: Tran Duc Thang <thangcest2@gmail.com>                         |
+ |          or             <thang.tran@tiki.vn>                           |
+ +------------------------------------------------------------------------+
+*/
+DETAIL;
+
+    if ($textOnly) {
+        return $detail;
+    }
+    //not test yet
+    $detail = "<?php \n" . $detail;
+
+    //only append if not yet have
+    if (!preg_match('/Mai Phuong Nguyen/', $detail)) {
+        $content = file_get_contents($file);
+        $content = preg_replace('/^\<\?php', $detail, $content);
+        file_put_contents($file, $content);
+    }
+
+}

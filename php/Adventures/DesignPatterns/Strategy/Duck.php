@@ -27,12 +27,20 @@ abstract class Duck {
     $this->_quack = $quackBehavior;
   }
 
+  public function getQuackBehavior() {
+    return $this->_quack;
+  }
+
+  public function getFlyBehavior() {
+    return $this->_fly;
+  }
+
   public function performFly() {
-    $this->_fly->fly();
+    $this->getFlyBehavior()->fly();
   }
 
   public function performQuack() {
-    $this->_quack->quack();
+    $this->getQuackBehavior()->quack();
   }
 
 }

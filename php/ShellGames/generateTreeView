@@ -1,0 +1,32 @@
+#!/usr/bin/env php
+
+<?php
+/**
+ * Generate a tree view of folders and files for current project
+ *
+ * Version 0.1
+ *
+ * CreatedBy: thang.tran@tiki.vn
+ * Date: 10/18/15
+ * Time: 7:09 PM
+ */
+
+//todo output html format
+//todo link to readme view
+//todo set ignore config
+define('ROOT', dirname(dirname(dirname(__FILE__))));
+createTreeView(ROOT, true);
+
+function createTreeView($dir, $showHead = true) {
+    $structure = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir), RecursiveIteratorIterator::SELF_FIRST);
+    foreach($structure as $folder) {
+
+    }
+
+}
+
+function joinSymbol() {
+
+}
+
+
