@@ -6,35 +6,9 @@ This repo contains my exercises as self-learning process I do at home.
 
 Most of them are from the book names: Cấu Trúc Dữ Liệu và Giải Thuật - tác giả Lê Minh Hoàng
 
+I have started taking real adventure from today: Sat Nov  7 22:09:25 ICT 2015
+
+
 The rest are some fundamental techniques / Tests.
 
-
-
-Talaria
-├── applications
-│   ├── frontend
-│   │   ├── config
-│   │   │   ├── main.php
-│   │   │   ├── local.php
-│   │   ├── controllers
-│   │   ├── models
-│   │   ├── views
-│   │   ├── library
-│   ├── backend
-│   ├── console
-├── library
-│   ├── Tala
-├── config
-│   ├── main.php
-│   ├── local.php
-├── var
-│   ├── cache
-│   ├── log
-│   ├── run
-├── vendor
-├── webroot
-│   ├── frontend
-│   │   ├── index.php
-│   ├── backend
-├── cli
-├── composer.json
+I will generate folder structure below :)
