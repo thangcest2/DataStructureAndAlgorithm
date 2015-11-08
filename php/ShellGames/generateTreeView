@@ -15,7 +15,7 @@ define('PHPROOT', dirname(dirname(__FILE__)));
 
 function createTreeView($structure, $initSymbol = '', &$text) {
     foreach($structure as $folderName => $subFolder) {
-        $text .= $initSymbol . $folderName . ": *Docs for $folderName*" . PHP_EOL;
+        $text .= '######' . $initSymbol . $folderName . ": *Docs for $folderName*" . PHP_EOL;
         createTreeView($subFolder, $initSymbol.'--', $text);
     }
 }
