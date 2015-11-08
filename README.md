@@ -12,3 +12,8 @@ I have started taking real adventure from today: Sat Nov  7 22:09:25 ICT 2015
 The rest are some fundamental techniques / Tests.
 
 I will generate folder structure below :)
+
+
+ATTENTION:
+This repo requires:  
+ - Phalcon Framework Extension: https://github.com/phalcon/cphalcon (for \Phalcon\Loader)
