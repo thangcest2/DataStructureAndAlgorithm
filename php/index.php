@@ -5,14 +5,14 @@
  * @property index.php $index.php
  */
 
-define('BASE_PATH', dirname(__FILE__));
+define('PHP_BASE_PATH', dirname(__FILE__));
 
 $loader = new Phalcon\Loader();
 
 $loader->registerNamespaces([
-    'DesignPatterns' => BASE_PATH . '/Adventures/DesignPatterns',
-    'OOPCore' => BASE_PATH . '/Adventures/OOPCore',
-    'Services' => BASE_PATH . '/Adventures/Services'
+    'DesignPatterns' => PHP_BASE_PATH . '/Adventures/DesignPatterns',
+    'OOPCore' => PHP_BASE_PATH . '/Adventures/OOPCore',
+    'Services' => PHP_BASE_PATH . '/Adventures/Services'
 ])->register();
 
 

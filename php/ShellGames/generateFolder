@@ -49,7 +49,15 @@ function run($dirConfig = [], $path = '', $namespace = '') {
         $dir = $path . $dirName;
         if (!is_numeric($dirName)) {
             if (!is_dir($dir)) {
+                //in case of folder not yet created
                 mkdir($dir);
+            }
+
+            //in case of super subfolder of /Advendtures, create readme.md
+            if (in_array(basename(dirname($dir)), ['DesignPatterns', 'LeftOvers', 'OOPCore', 'Services'])) {
+                if (!file_exists($dir . '/' . 'README.md')) {
+                    file_put_contents($dir . '/' . 'README.md', "Docs for $dirName");
+                }
             }
 
             if (is_array($subDirName)) {

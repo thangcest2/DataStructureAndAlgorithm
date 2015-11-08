@@ -16,6 +16,7 @@ return [
             'DisplayInterface',
             'DisplayImplement',
             'WeatherStationPublisher',
+            'WeatherApp',
         ],
         'Events' => [
             'Manager'
@@ -26,16 +27,7 @@ return [
     'State' => [],
     'Proxy' => [],
     'Compound' => [],
-    'Bridge' => [],
-    'Builder' => [],
-    'ChainOfResponsibility' => [],
-    'FlyWeight' => [],
-    //the leftovers patterns
-    'Interpreter' => [],
-    'Mediator' => [],
-    'Memento' => [],
-    'Prototype' => [],
-    'Visitor' => [],
+
     'Mvc' => [
         'Flash' => [
             'Direct',
@@ -76,4 +68,18 @@ return [
         'Service',
         'ServiceInterface',
     ],
+
+    //the leftovers patterns
+    'LeftOvers' => [
+        'Bridge' => [],
+        'Builder' => [],
+        'ChainOfResponsibility' => [],
+        'FlyWeight' => [],
+        'Interpreter' => [],
+        'Mediator' => [],
+        'Memento' => [],
+        'Prototype' => [],
+        'Visitor' => [],
+    ],
+
 ];
