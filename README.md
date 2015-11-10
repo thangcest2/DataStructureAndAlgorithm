@@ -20,6 +20,7 @@ This repo requires:
 - Some of them are new, such as Dependency Injection, MVC
 - Each pattern is written as final implement. To see result, run: php /DataStructureAndAlgorithm/php/index.php
 - Reading this book is recommended, they explained where each pattern comes from and how to combine them together
+
 ######------AdapterAndFacade: *Docs for AdapterAndFacade*
 ######------Command: *Docs for Command*
 ######------Compound: *Docs for Compound*
@@ -52,6 +53,7 @@ This repo requires:
 - Object class: should be inherit by all client classes later. To have convenient of playing with its data/property
 - Vector class: refer to Vector class in Java. It's an Vector that hold objects. It provides a list of methods to play with object. 
 - Collection class: a collection of Object in array
+
 ######--------WeatherApp: *Docs for WeatherApp*
 ######------Proxy: *Docs for Proxy*
 ######------Singleton: *Docs for Singleton*
