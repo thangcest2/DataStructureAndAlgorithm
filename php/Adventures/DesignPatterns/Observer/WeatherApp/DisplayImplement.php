@@ -21,7 +21,7 @@ use DesignPatterns\Observer\Observer\Core\ObserverInterface;
  * @class DisplayImplement
  */
 
-class DisplayImplement extends Object implements DisplayInterface, ObserverInterface
+class DisplayImplement extends Object implements ObserverInterface
 {
     /**
      * @var \DesignPatterns\Observer\Observer\Core\Publisher

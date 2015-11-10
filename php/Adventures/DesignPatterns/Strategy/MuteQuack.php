@@ -1,7 +1,6 @@
 <?php
 
-namespace StrategyDuck\MuteQuack;
-use StrategyDuck\QuackBehavior;
+namespace StrategyDuck;
 
 class MuteQuack implements QuackBehavior {
 

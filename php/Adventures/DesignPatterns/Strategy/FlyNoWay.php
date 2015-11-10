@@ -1,7 +1,6 @@
 <?php
 
-namespace StrategyDuck\FlyNoWay;
-use StrategyDuck\FlyBehavior;
+namespace StrategyDuck;
 
 class FlyNoWay implements FlyBehavior {
 

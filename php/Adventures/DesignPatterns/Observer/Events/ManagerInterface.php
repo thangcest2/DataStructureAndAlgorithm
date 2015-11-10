@@ -12,13 +12,22 @@
  +------------------------------------------------------------------------+
 */
 
-namespace DesignPatterns\Observer\WeatherApp;
+namespace DesignPatterns\Observer\Events;
 
 /**
- * @interface DisplayInterface
+ * @interface ManagerInterface
  */
 
-interface DisplayInterface
+interface ManagerInterface
 {
-    public function display();
+
+    public function attach();
+
+    public function detach();
+
+    public function fire();
+
+    public function getListeners();
+
+
 }

@@ -14,17 +14,21 @@
 
 namespace DesignPatterns\Observer\Events;
 
-use DesignPatterns\Observer\Observer\Core\Publisher;
-
 /**
- * @class Manager
+ * @interface EventsAwareInterface
  */
 
-class Manager extends Publisher
+interface EventsAwareInterface
 {
+    /**
+     * @param $eventsManager
+     * Sets the events manager
+     */
+    public function setEventsManager(ManagerInterface $eventsManager);
 
-
-
-
-
+	/**
+     * @param $eventsManager
+     * Returns the internal event manager
+     */
+	public function getEventsManager(ManagerInterface $eventsManager);
 }

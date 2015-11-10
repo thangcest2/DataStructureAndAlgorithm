@@ -1,7 +1,6 @@
 <?php
 
-namespace StrategyDuck\FlyWithWings;
-use \StrategyDuck\FlyBehavior;
+namespace StrategyDuck;
 
 class FlyWithWings implements FlyBehavior {
   public function fly() {

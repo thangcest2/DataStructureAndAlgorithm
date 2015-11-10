@@ -19,8 +19,11 @@ return [
             'WeatherApp',
         ],
         'Events' => [
-            'Manager'
-        ],
+            'Event',
+            'Manager',
+            'EventsAwareInterface',
+            'ManagerInterface',
+        ]
     ],
     'Singleton' => [],
     'Strategy' => [],

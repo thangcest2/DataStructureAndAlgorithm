@@ -12,12 +12,27 @@
  +------------------------------------------------------------------------+
 */
 
-namespace DesignPatterns\Observer\WeatherApp;
+namespace DesignPatterns\Observer\Events;
+use DesignPatterns\Observer\Observer\Core\Publisher;
+use OOPCore\Object;
+use DesignPatterns\Observer\Observer\Core\ObserverInterface;
 
 /**
-* @class WeatherApp
-*/
+ * @class Event
+ */
 
-class WeatherApp {
+class Event extends Object implements ObserverInterface
+{
+    /**
+     * @var Publisher
+     */
+    private $_manager;
+
+    public function update(Publisher $manager)
+    {
+        $this->_manager = $manager;
+        $this->_manager->addObserver($this);
+
+    }
 
 }

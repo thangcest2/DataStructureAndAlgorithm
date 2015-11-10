@@ -1,7 +1,6 @@
 <?php
 
-namespace StrategyDuck\Squeak;
-use StrategyDuck\QuackBehavior;
+namespace StrategyDuck;
 
 class Squeak implements QuackBehavior {
 

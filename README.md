@@ -2,32 +2,8 @@
 
 This repo contains my exercises as self-learning process I do at home.
   - Folders are separated by programming language name: eg /php, /javascript,...
-  - Don't use gitflow
-
-Most of them are from the book names: Cấu Trúc Dữ Liệu và Giải Thuật - tác giả Lê Minh Hoàng
 
 I have started taking real adventure from today: Sat Nov  7 22:09:25 ICT 2015
-
-
-The rest are some fundamental techniques / Tests.
-
-
-Folder Structure:
-
-php
---Adventure
-  ---Design Patterns : *List of design patterns*
-  ---OOPCore : *Base classes which will be spreadly used in this repo*
-  ---Services : **
-
-BookPractise
-
-InterviewJorkers
-
-Utilities
-
-
-
 
 
 ATTENTION:
@@ -40,7 +16,10 @@ This repo requires:
 
 ######php: *Docs for php*
 ######--Adventures: *Docs for Adventures*
-######----DesignPatterns: *Docs for DesignPatterns*
+######----DesignPatterns: *From the book: Head First Design Patterns - O'Reilly*
+- Some of them are new, such as Dependency Injection, MVC
+- Each pattern is written as final implement. To see result, run: php /DataStructureAndAlgorithm/php/index.php
+- Reading this book is recommended, they explained where each pattern comes from and how to combine them together
 ######------AdapterAndFacade: *Docs for AdapterAndFacade*
 ######------Command: *Docs for Command*
 ######------Compound: *Docs for Compound*
@@ -69,7 +48,10 @@ This repo requires:
 ######--------EventManagerPhalcon: *Docs for EventManagerPhalcon*
 ######--------Events: *Docs for Events*
 ######--------Observer: *Docs for Observer*
-######----------Core: *Docs for Core*
+######----------Core: *Currently this folder includes Object,Vector,Collection*
+- Object class: should be inherit by all client classes later. To have convenient of playing with its data/property
+- Vector class: refer to Vector class in Java. It's an Vector that hold objects. It provides a list of methods to play with object. 
+- Collection class: a collection of Object in array
 ######--------WeatherApp: *Docs for WeatherApp*
 ######------Proxy: *Docs for Proxy*
 ######------Singleton: *Docs for Singleton*
@@ -99,7 +81,7 @@ This repo requires:
 ######--------Beanstalk: *Docs for Beanstalk*
 ######--------Gearman: *Docs for Gearman*
 ######--------RabbitMQ: *Docs for RabbitMQ*
-######--BookPractises: *Docs for BookPractises*
-######--InterviewJorkes: *Docs for InterviewJorkes*
-######--ShellGames: *Docs for ShellGames*
-######--Utilities: *Docs for Utilities*
+######--BookPractises: *Book name: Cấu Trúc Dữ Liệu và Giải Thuật - tác giả Lê Minh Hoàng*
+######--InterviewJorkes: *For all 'jorke' tests from my interviews*
+######--ShellGames: *Used to make code generator, such as generate doc, generate files..., this file is also generated.*
+######--Utilities: *Contains classes with static methods to quickly give convenients of handling issues*

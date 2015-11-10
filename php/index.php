@@ -12,23 +12,14 @@ $loader = new Phalcon\Loader();
 $loader->registerNamespaces([
     'DesignPatterns' => PHP_BASE_PATH . '/Adventures/DesignPatterns',
     'OOPCore' => PHP_BASE_PATH . '/Adventures/OOPCore',
-    'Services' => PHP_BASE_PATH . '/Adventures/Services'
+    'Services' => PHP_BASE_PATH . '/Adventures/Services',
+    'StrategyDuck' => PHP_BASE_PATH . '/Adventures/DesignPatterns/Strategy',
 ])->register();
 
+require PHP_BASE_PATH . '/Adventures/Application.php';
 
-function observerWeatherApp() {
-    $publisher = new \DesignPatterns\Observer\WeatherApp\WeatherStationPublisher();
-    $device1 = new \DesignPatterns\Observer\WeatherApp\DisplayImplement($publisher);
-    $device2 = new \DesignPatterns\Observer\WeatherApp\DisplayImplement($publisher);
-    $device3 = new \DesignPatterns\Observer\WeatherApp\DisplayImplement($publisher);
-    $publisher->removeObserver($device1);
-    $publisher->addObserver($device2);
-    $publisher->addObserver($device2);
-    $publisher->addObserver($device2);
-    $publisher->addObserver($device2);
+Application::run('observer');
+Application::run('strategy');
+Application::run('di');
 
-    $publisher->setMeasurement('20%', 10.5, 5.4);
-}
-
-observerWeatherApp();
 

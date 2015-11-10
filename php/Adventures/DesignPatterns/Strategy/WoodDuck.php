@@ -1,9 +1,6 @@
 <?php
 
-namespace StrategyDuck\WoodDuck;
-use StrategyDuck\Duck;
-use StrategyDuck\FlyNoWay\FlyNoWay;
-use StrategyDuck\Squeak\Squeak;
+namespace StrategyDuck;
 
 class WoodDuck extends Duck {
 

@@ -13,8 +13,8 @@
 */
 
 namespace DesignPatterns\Mvc\Flash;
-use DependencyInjection\DependencyInjector;
-use DependencyInjection\Injectable;
+use DesignPatterns\DependencyInjection\DependencyInjector;
+use DesignPatterns\DependencyInjection\Injectable;
 use DesignPatterns\Mvc\Session\AdapterInterface;
 
 /**
