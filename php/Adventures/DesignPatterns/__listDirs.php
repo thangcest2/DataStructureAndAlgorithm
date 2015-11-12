@@ -2,7 +2,39 @@
 return [
     'AdapterAndFacade' => [],
     'Command' => [],
-    'Decorator' => [],
+    'Decorator' => [
+        'FileSystem' => [
+            'InputAbstracts' => [
+                'InputStreamAbstract',
+                'FilterInputStreamAbstract',
+            ],
+            'StreamDecorators' => [
+                'FilterBufferredInput',
+                'FilterLineNumberInput',
+            ],
+            'InputStreams' => [
+                'FileInputStream',
+                'StringBufferInputStream',
+                'BypeArrayInputStream',
+            ]
+        ],
+        'StarbuzzCoffee' => [
+            'TheAbstracts' => [
+                'BeverageAbstract',
+                'CondimentDecoratorAbstract',
+            ],
+            'TheCondiments' => [
+                'SoyCondiment',
+                'MochaCondiment',
+                'WhipCondiment',
+            ],
+            'TheDrinks' => [
+                'ExpressoBeverage',
+                'CapuchinoBeverage',
+                'HouseBlendBeverage',
+            ]
+        ]
+    ],
     'Factory' => [],
     'IteratorAndComposite' => [],
     'Observer' => [
@@ -16,7 +48,6 @@ return [
             'DisplayInterface',
             'DisplayImplement',
             'WeatherStationPublisher',
-            'WeatherApp',
         ],
         'Events' => [
             'Event',

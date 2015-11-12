@@ -2,6 +2,8 @@
 
 namespace OOPCore;
 
+use Utilities\Text;
+
 class Object implements \ArrayAccess
 {
     protected $_data = [];
@@ -13,6 +15,11 @@ class Object implements \ArrayAccess
 
     public function __toString() {
         return get_class($this);
+    }
+
+    public function toString()
+    {
+        return Text::deCamelize((new \ReflectionClass($this))->getShortName(), ' ', 'ucfirst');
     }
 
     public function __set($name, $value) {

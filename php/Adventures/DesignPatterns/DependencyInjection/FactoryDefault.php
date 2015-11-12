@@ -10,13 +10,13 @@ class FactoryDefault extends DependencyInjector
     {
         parent::__construct();
         $this->_services = [
-            'eventsManager' => new Service('eventsManager', '\Observer\EventsManager\Manager', true),
-            'router'        => new Service('router', '\Mvc\Router', true),
-            'dispatcher'    => new Service('dispatcher', '\Mvc\Dispatcher', true),
-            'request'       => new Service('request', '\Mvc\WebMethods\Http\Request', true),
-            'cookie'        => new Service('cookie', '\Mvc\WebMethods\Http\Cookie', true),
-            'response'      => new Service('response', '\Mvc\WebMethods\Http\Response', true),
-            'modelsManager' => new Service('modelsManager', '\Mvc\Model\Manager', true),
+            'eventsManager' => new Service('eventsManager', '\DesignPatterns\Observer\Events\Manager', true),
+            'router'        => new Service('router', '\DesignPatterns\Mvc\Router', true),
+            'dispatcher'    => new Service('dispatcher', '\DesignPatterns\Mvc\Dispatcher', true),
+            'request'       => new Service('request', '\DesignPatterns\Mvc\WebMethods\Http\Request', true),
+            'cookie'        => new Service('cookie', '\DesignPatterns\Mvc\WebMethods\Http\Cookie', true),
+            'response'      => new Service('response', '\DesignPatterns\Mvc\WebMethods\Http\Response', true),
+            'modelsManager' => new Service('modelsManager', '\DesignPatterns\Mvc\Model\Manager', true),
         ];
 
     }
