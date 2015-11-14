@@ -95,30 +95,30 @@ This repo requires:
 
 ------------------
 
-##----php/Adventure/DesignPatterns: *From the book: Head First Design Patterns - O'Reilly*
+####php/Adventure/DesignPatterns: *From the book: Head First Design Patterns - O'Reilly*
 - Some of them are new, such as Dependency Injection, MVC
 - Each pattern is written as final implement. To see result, run: php /DataStructureAndAlgorithm/php/index.php
 - Reading this book is recommended, they explained where each pattern comes from and how to combine them together
 
 ------------------
 
-##----php/Adventure/Core: *Currently this folder includes Object,Vector,Collection*
+####php/Adventure/Core: *Currently this folder includes Object,Vector,Collection*
 - Object class: should be inherit by all client classes later. To have convenient of playing with its data/property
 - Vector class: refer to Vector class in Java. It's an Vector that hold objects. It provides a list of methods to play with object. 
 - Collection class: a collection of Object in array
 
 ------------------
 
-##--BookPractises: *Book name: Cấu Trúc Dữ Liệu và Giải Thuật - tác giả Lê Minh Hoàng*
+####php/BookPractises: *Book name: Cấu Trúc Dữ Liệu và Giải Thuật - tác giả Lê Minh Hoàng*
 
 ------------------
 
-##--InterviewJorkes: *For all 'jorke' tests from my interviews*
+####php/InterviewJorkes: *For all 'jorke' tests from my interviews*
 
 ------------------
 
-##--ShellGames: *Used to make code generator, such as generate doc, generate files..., this file is also generated.*
+####php/ShellGames: *Used to make code generator, such as generate doc, generate files..., this file is also generated.*
 
 ------------------
 
-##Utilities: *Contains classes with static methods to quickly give convenients of handling issues*
+####php/Utilities: *Contains classes with static methods to quickly give convenients of handling issues*
