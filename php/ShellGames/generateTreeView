@@ -17,7 +17,7 @@ define('GITLINK', 'https://github.com/thangcest2/DataStructureAndAlgorithm/tree/
 
 function createTreeView($structure, $initSymbol = '', $baseLink ,&$text) {
     foreach($structure as $folderName => $subFolder) {
-        $text .= '######' . $initSymbol . $folderName . PHP_EOL;
+        $text .= $initSymbol . $folderName . PHP_EOL;
         createTreeView($subFolder, $initSymbol.'----', "$baseLink/$folderName", $text);
     }
 }
