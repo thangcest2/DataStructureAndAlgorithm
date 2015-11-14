@@ -12,18 +12,19 @@
  +------------------------------------------------------------------------+
 */
 
-/**
- * CreatedBy: thang.tran@tiki.vn
- * Date: 10/31/15
- * Time: 2:08 PM
- */
-namespace DesignPatterns\DependencyInjection;
+namespace DesignPatterns\Factory\PizzaStore\HoChiMinh;
 
-interface InjectableInterface
+use DesignPatterns\Factory\PizzaStore\PizzaAbstract;
+
+/**
+ * @class HoChiMinhSpaggetiPizza
+ */
+class HoChiMinhSpaggetiPizza extends PizzaAbstract
 {
 
-    public function setDI($dependencyInjector);
-
-    public function getDI();
+    public function __construct()
+    {
+        $this->_name = "HCM Spaggeti Pizza";
+    }
 
 }

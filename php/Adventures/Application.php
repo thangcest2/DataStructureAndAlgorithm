@@ -2,6 +2,7 @@
 
 use Utilities\BashColorsString;
 use \DesignPatterns\Decorator\StarbuzzCoffee as Starbuzz;
+use \DesignPatterns\Factory\PizzaStore as PizzaStore;
 
 class Application
 {
@@ -32,7 +33,7 @@ class Application
                 break;
 
             default :
-                echo 'No app found' . PHP_EOL;
+                echo 'No app found or not yet code :v' . PHP_EOL;
                 break;
         }
 
@@ -41,16 +42,23 @@ class Application
     public static function observerWeatherApp()
     {
         $publisher = new \DesignPatterns\Observer\WeatherApp\WeatherStationPublisher();
-        $device1   = new \DesignPatterns\Observer\WeatherApp\DisplayImplement($publisher);
-        $device2   = new \DesignPatterns\Observer\WeatherApp\DisplayImplement($publisher);
-        $device3   = new \DesignPatterns\Observer\WeatherApp\DisplayImplement($publisher);
-        $publisher->removeObserver($device1);
-        $publisher->addObserver($device2);
-        $publisher->addObserver($device2);
-        $publisher->addObserver($device2);
-        $publisher->addObserver($device2);
+        $device   = new \DesignPatterns\Observer\WeatherApp\GeneralDisplay($publisher);
+        $device1   = new \DesignPatterns\Observer\WeatherApp\StatisticsDisplay($publisher);
+        $device2   = new \DesignPatterns\Observer\WeatherApp\ForecastDisplay($publisher);
+        $publisher->setMeasurement(20, 10.5, 5.4);
+        echo PHP_EOL;
+        $publisher->setMeasurement(25, 9.5, 4.4);
+        echo PHP_EOL;
+        $publisher->setMeasurement(15, 8.5, 3.4);
+        echo PHP_EOL;
 
-        $publisher->setMeasurement('20%', 10.5, 5.4);
+        $publisher->removeObserver($device1);
+        $publisher->setMeasurement(15, 8.5, 3.4);
+        echo PHP_EOL;
+
+        $publisher->removeObserver($device2);
+        $publisher->setMeasurement(15, 8.5, 3.4);
+        echo PHP_EOL;
     }
 
     public static function diApp()
@@ -110,6 +118,13 @@ class Application
 
     public static function factoryApp()
     {
+        $pizzaStoreHN = new PizzaStore\HaNoi\HaNoiPizzaStoreFactory();
+        echo $pizzaStoreHN->orderPizza('spaggeti')->getName() . PHP_EOL;
+
+        echo PHP_EOL;
+
+        $pizzaStoreHCM = new PizzaStore\HoChiMinh\HoChiMinhPizzaStoreFactory();
+        echo $pizzaStoreHCM->orderPizza('cheese')->getName() . PHP_EOL;
 
     }
 

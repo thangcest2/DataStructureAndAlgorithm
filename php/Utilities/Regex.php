@@ -17,8 +17,8 @@ $callback = function($found) {
   return $found[2];
 };
 
-//$a = preg_replace($pattern, '${1}https://google.com.${2}thangtd', $subject);
-$aa = preg_replace_callback($pattern, $callback, $subject);
+$a = preg_replace($pattern, '${1}https://google.com.${2}thangtd', $subject);
+//$aa = preg_replace_callback($pattern, $callback, $subject);
 
-//var_dump($a);
-var_dump($aa);
+var_dump($a);
+//var_dump($aa);

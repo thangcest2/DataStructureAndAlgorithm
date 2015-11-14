@@ -15,12 +15,6 @@
 namespace DesignPatterns\Observer\Observer\Core;
 
 /**
- * @interface ObserverInterface
- */
-
-use OOPCore\Object;
-
-/**
  * Interface ObserverInterface
  * @package DesignPatterns\Observer\Observer\Core
  */

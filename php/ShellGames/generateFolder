@@ -10,7 +10,6 @@
  * eg: ./generateFolder ../../php/Adventures/DesignPatterns/ designPatterns
  */
 
-
 require_once 'common.php';
 
 if (!isset($argv[1])) {
@@ -29,10 +28,12 @@ if (!file_exists($configFile)) {
 }
 
 $namespacePrefix = $namespaces[$argv[2]];
+$genDocOnly = isset($argv[3]) && $argv[3] == '1' ? true: false;
+
 $path = realpath($argv[1]) . '/';
 $dirs = require($configFile);
 
-run($dirs, $path, $namespacePrefix);
+run($dirs, $path, $namespacePrefix, $genDocOnly);
 
 /**
  * Recursively create folder + files and subfolder + files
@@ -40,16 +41,17 @@ run($dirs, $path, $namespacePrefix);
  * @param array $dirConfig
  * @param string $path
  * @param string $namespace
+ * @param bool $genDocOnly
  */
-function run($dirConfig = [], $path = '', $namespace = '') {
+function run($dirConfig = [], $path = '', $namespace = '', $genDocOnly = false) {
     if ($path[strlen($path) - 1] !== '/') {
         $path .= '/';
     }
     foreach ($dirConfig as $dirName => $subDirName) {
         $dir = $path . $dirName;
         if (!is_numeric($dirName)) {
+            //in case of folder not yet created
             if (!is_dir($dir)) {
-                //in case of folder not yet created
                 mkdir($dir);
             }
 
@@ -62,7 +64,7 @@ function run($dirConfig = [], $path = '', $namespace = '') {
 
             if (is_array($subDirName)) {
                 //in case of array
-                run($subDirName, $dir, empty($namespace) ? "$dirName" : "$namespace\\$dirName");
+                run($subDirName, $dir, empty($namespace) ? "$dirName" : "$namespace\\$dirName", $genDocOnly);
             }
         } else {
             //in case of file name
@@ -77,15 +79,31 @@ function run($dirConfig = [], $path = '', $namespace = '') {
                 }
 
                 file_put_contents($newFile, genInitContent($subDirName, $namespace, $classOrInterface));
+            } else {
+                if ($genDocOnly) {
+                    genHeadDocOnly($newFile);
+                }
             }
         }
     }
 
 }
 
+function genHeadDocOnly($file) {
+    $headDoc = appendDetails();
+    $content = file_get_contents($file);
+    if (strpos($content, $headDoc) !== false) {
+        return;
+    }
+
+    $a = preg_replace("/\<\?php/", '${1}<?php' . PHP_EOL . $headDoc , $content);
+    file_put_contents($file, $a);
+}
+
+
 function genInitContent($fileName, $namespace, $type = 'class') {
-    $detail = appendDetails(false, true);
-    $initContent = $initContent = <<<CONTENT
+    $detail = appendDetails();
+    $initContent = <<<CONTENT
 <?php
 $detail
 
@@ -95,7 +113,8 @@ namespace $namespace;
 * @$type $fileName
 */
 
-$type $fileName {
+$type $fileName
+{
 
 }
 CONTENT;
@@ -103,7 +122,7 @@ CONTENT;
     return $initContent;
 }
 
-function appendDetails($file, $textOnly = true) {
+function appendDetails() {
     $detail = <<<DETAIL
 /*
  +------------------------------------------------------------------------+
@@ -119,17 +138,6 @@ function appendDetails($file, $textOnly = true) {
 */
 DETAIL;
 
-    if ($textOnly) {
-        return $detail;
-    }
-    //not test yet
-    $detail = "<?php \n" . $detail;
-
-    //only append if not yet have
-    if (!preg_match('/Mai Phuong Nguyen/', $detail)) {
-        $content = file_get_contents($file);
-        $content = preg_replace('/^\<\?php', $detail, $content);
-        file_put_contents($file, $content);
-    }
+    return $detail;
 
 }

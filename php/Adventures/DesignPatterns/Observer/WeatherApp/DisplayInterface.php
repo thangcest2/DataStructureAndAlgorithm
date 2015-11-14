@@ -20,4 +20,6 @@ namespace DesignPatterns\Observer\WeatherApp;
 
 interface DisplayInterface {
 
+    public function display();
+
 }

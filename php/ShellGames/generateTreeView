@@ -13,10 +13,12 @@
 
 define('PHPROOT', dirname(dirname(__FILE__)));
 
-function createTreeView($structure, $initSymbol = '', &$text) {
+define('GITLINK', 'https://github.com/thangcest2/DataStructureAndAlgorithm/tree/master');
+
+function createTreeView($structure, $initSymbol = '', $baseLink ,&$text) {
     foreach($structure as $folderName => $subFolder) {
-        $text .= '######' . $initSymbol . $folderName . ": *Docs for $folderName*" . PHP_EOL;
-        createTreeView($subFolder, $initSymbol.'--', $text);
+        $text .= '######' . $initSymbol . $folderName . ": \n --> [$folderName] $baseLink/$folderName" . PHP_EOL;
+        createTreeView($subFolder, $initSymbol.'--', "$baseLink/$folderName", $text);
     }
 }
 
@@ -41,5 +43,5 @@ function getStructure($rootPath, &$out) {
 $text = "" . PHP_EOL;
 $out = [];
 getStructure(PHPROOT, $out);
-createTreeView($out, '', $text);
+createTreeView($out, '', GITLINK, $text);
 file_put_contents(dirname(PHPROOT) . '/README.md', $text, FILE_APPEND);

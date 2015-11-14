@@ -12,18 +12,26 @@
  +------------------------------------------------------------------------+
 */
 
-/**
- * CreatedBy: thang.tran@tiki.vn
- * Date: 10/31/15
- * Time: 2:08 PM
- */
-namespace DesignPatterns\DependencyInjection;
 
-interface InjectableInterface
+
+namespace DesignPatterns\Factory\PizzaStore\HoChiMinh;
+
+use DesignPatterns\Factory\PizzaStore\PizzaStoreFactoryAbstract;
+
+class HoChiMinhPizzaStoreFactory extends PizzaStoreFactoryAbstract
 {
 
-    public function setDI($dependencyInjector);
+    protected function createPizza($type)
+    {
+        switch ($type) {
+            case "spaggeti" :
+                return new HoChiMinhSpaggetiPizza();
+            case "cheese" :
+                return new HoChiMinhCheesePizza();
+            default :
+                throw new \RuntimeException("No such type of pizza in this HCM Store");
 
-    public function getDI();
+        }
+    }
 
 }

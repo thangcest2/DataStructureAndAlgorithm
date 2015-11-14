@@ -27,8 +27,28 @@ require PHP_BASE_PATH . '/Adventures/Application.php';
 //    'decorator',
 //];
 //echo Utilities\BashColorsString::make(implode("\n", $listApps) . PHP_EOL, 'yellow');
-//$appName = trim(fgets(STDIN));
 
-Application::run($argv[1]);
+//$stdin = fopen('php://stdin', 'r');
+
+//fscanf(STDIN, "%d\n", $number);
+//$stdout = fopen('php://stdout', 'w');
+//$stderr = fopen('php://stderr', 'w');
+
+if (!isset($argv[1])) {
+    echo \Utilities\BashColorsString::make("Type app you want to see. In list of:" . PHP_EOL, \Utilities\BashColorsString::LIGHT_GRAY);
+    $list = \Utilities\SmartDirectory::directSubDirs('/Users/thangcest2/DataStructureAndAlgorithm/php/Adventures/DesignPatterns');
+    foreach ($list as $l) {
+        if ($l == 'DependencyInjection') {
+            $l = 'di';
+        }
+        echo strtolower($l) . PHP_EOL;
+    }
+    echo PHP_EOL;
+    $appName = trim(fgets(STDIN));
+} else {
+    $appName = $argv[1];
+}
+
+Application::run($appName);
 
 

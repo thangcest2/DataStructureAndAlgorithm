@@ -35,7 +35,19 @@ return [
             ]
         ]
     ],
-    'Factory' => [],
+    'Factory' => [
+        'PizzaStore' => [
+            'PizzaAbstract',
+            'HaNoi' => [
+                'HaNoiSpaggetiPizza',
+                'HaNoiCheesePizza',
+            ],
+            'HoChiMinh' => [
+                'HoChiMinhSpaggetiPizza',
+                'HoChiMinhCheesePizza',
+            ]
+        ]
+    ],
     'IteratorAndComposite' => [],
     'Observer' => [
         'Observer' => [

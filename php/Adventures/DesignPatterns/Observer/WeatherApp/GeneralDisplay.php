@@ -16,12 +16,13 @@ namespace DesignPatterns\Observer\WeatherApp;
 use OOPCore\Object;
 use DesignPatterns\Observer\Observer\Core\Publisher;
 use DesignPatterns\Observer\Observer\Core\ObserverInterface;
+use Utilities\BashColorsString;
 
 /**
- * @class DisplayImplement
+ * @class GeneralDisplay
  */
 
-class DisplayImplement extends Object implements ObserverInterface
+class GeneralDisplay extends Object implements ObserverInterface, DisplayInterface
 {
     /**
      * @var \DesignPatterns\Observer\Observer\Core\Publisher
@@ -44,7 +45,7 @@ class DisplayImplement extends Object implements ObserverInterface
 
     public function display()
     {
-        echo sprintf("Wheather detail: %s temprature, %s humidity, %s pressure.", $this->_temprature, $this->_humidity, $this->_pressure) . PHP_EOL;
+        echo BashColorsString::make(sprintf("Wheather detail: %s temprature, %s humidity, %s pressure.", $this->_temprature . "%", $this->_humidity, $this->_pressure) . PHP_EOL, 'yellow');
     }
 
     /**
@@ -52,10 +53,12 @@ class DisplayImplement extends Object implements ObserverInterface
      * @return void
      */
     public function update(Publisher $publisher){
-        $this->_temprature = $publisher->getTemprature();
-        $this->_humidity = $publisher->getHumidity();
-        $this->_pressure = $publisher->getPressure();
-        $this->display();
+        if ($publisher instanceof WeatherStationPublisher) {
+            $this->_temprature = $publisher->getTemprature();
+            $this->_humidity = $publisher->getHumidity();
+            $this->_pressure = $publisher->getPressure();
+            $this->display();
+        }
 
     }
     

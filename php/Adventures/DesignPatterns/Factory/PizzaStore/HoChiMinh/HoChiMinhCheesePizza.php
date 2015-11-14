@@ -12,18 +12,18 @@
  +------------------------------------------------------------------------+
 */
 
+namespace DesignPatterns\Factory\PizzaStore\HoChiMinh;
+use DesignPatterns\Factory\PizzaStore\PizzaAbstract;
+
 /**
- * CreatedBy: thang.tran@tiki.vn
- * Date: 10/31/15
- * Time: 2:08 PM
- */
-namespace DesignPatterns\DependencyInjection;
+* @class HoChiMinhCheesePizza
+*/
 
-interface InjectableInterface
+class HoChiMinhCheesePizza extends PizzaAbstract
 {
-
-    public function setDI($dependencyInjector);
-
-    public function getDI();
+    public function __construct()
+    {
+        $this->_name = "HCM Cheese Pizza";
+    }
 
 }

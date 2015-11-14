@@ -30,6 +30,6 @@ abstract class BeverageAbstract extends Object
 
     public abstract function cost();
 
-    //todo open to add getSize() + setSize() methods + increse cost by size
+    //todo open to add getSize() + setSize() methods + increase cost by size
 
 }

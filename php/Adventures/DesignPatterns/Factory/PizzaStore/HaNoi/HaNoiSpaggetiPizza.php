@@ -12,18 +12,23 @@
  +------------------------------------------------------------------------+
 */
 
+namespace DesignPatterns\Factory\PizzaStore\HaNoi;
+use DesignPatterns\Factory\PizzaStore\PizzaAbstract;
+
 /**
- * CreatedBy: thang.tran@tiki.vn
- * Date: 10/31/15
- * Time: 2:08 PM
- */
-namespace DesignPatterns\DependencyInjection;
+* @class HaNoiSpaggetiPizza
+*/
 
-interface InjectableInterface
-{
+class HaNoiSpaggetiPizza extends PizzaAbstract {
 
-    public function setDI($dependencyInjector);
+    public function __construct()
+    {
+        $this->_name = "HN Spaggeti Pizza";
+    }
 
-    public function getDI();
+    public function bake()
+    {
+        echo "Baking in 30 mins. WOW so long" . PHP_EOL;
+    }
 
 }

@@ -87,8 +87,8 @@ class Publisher extends Object
         }
 
         $this->clearChange();
-
-        for ($i = $this->_observers->size() - 1; $i >= 0; $i--) {
+        $size = $this->_observers->size();
+        for ($i = 0; $i < $size; $i++) {
             $this->_observers->elementAt($i)->update($this);
         }
     }
