@@ -12,42 +12,47 @@
  +------------------------------------------------------------------------+
 */
 
-
-
 namespace DesignPatterns\Factory\PizzaStore\HoChiMinh;
-
-use DesignPatterns\Factory\PizzaStore\PizzaStoreFactoryAbstract;
+use DesignPatterns\Factory\PizzaStore\IngredientFactoryInterface;
+use DesignPatterns\Factory\PizzaStore\Ingredients\TheImplements as Ingredient;
 
 /**
- * Class HoChiMinhPizzaStoreFactory
+ * Class HoChiMinhIngredientFactory
  * @package DesignPatterns\Factory\PizzaStore\HoChiMinh
  */
-class HoChiMinhPizzaStoreFactory extends PizzaStoreFactoryAbstract
+
+class HoChiMinhIngredientFactory implements IngredientFactoryInterface
 {
-
     /**
-     * @var \DesignPatterns\Factory\PizzaStore\IngredientFactoryInterface
+     * @return Ingredient\Dough\Thick
      */
-    private $_ingredientFactory;
-
-    /**
-     * @param string $type
-     * @throw \RuntimeException
-     * @return \DesignPatterns\Factory\PizzaStore\PizzaAbstract
-     */
-    protected function createPizza($type)
+    public function createDoughIngredient()
     {
-        $this->_ingredientFactory = new HoChiMinhIngredientFactory();
-
-        switch ($type) {
-            case "spaggeti" :
-                return new HoChiMinhSpaggetiPizza($this->_ingredientFactory);
-            case "cheese" :
-                return new HoChiMinhCheesePizza($this->_ingredientFactory);
-            default :
-                throw new \RuntimeException("No such type of pizza in this HCM Store");
-
-        }
+        return new Ingredient\Dough\Thick();
     }
+
+    /**
+     * @return Ingredient\Saunce\PlumTomato
+     */
+    public function createSauceIngredient()
+    {
+        return new Ingredient\Saunce\PlumTomato();
+    }
+
+    /**
+     * @return Ingredient\Pepperoni\White
+     */
+    public function createPepperoniIngredient(){
+        return new Ingredient\Pepperoni\White();
+    }
+
+    /**
+     * @return Ingredient\Clam\Frozen
+     */
+    public function createClamIngredient()
+    {
+        return new Ingredient\Clam\Frozen();
+    }
+
 
 }

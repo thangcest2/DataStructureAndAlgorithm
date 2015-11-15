@@ -38,14 +38,44 @@ return [
     'Factory' => [
         'PizzaStore' => [
             'PizzaAbstract',
+            'PizzaStoreFactoryAbstract',
+            'IngredientFactoryInterface',
             'HaNoi' => [
                 'HaNoiSpaggetiPizza',
                 'HaNoiCheesePizza',
+                'HaNoiIngredientFactory',
+                'HaNoiPizzaStoreFactory',
             ],
             'HoChiMinh' => [
                 'HoChiMinhSpaggetiPizza',
                 'HoChiMinhCheesePizza',
-            ]
+                'HoChiMinhIngredientFactory',
+                'HoChiMinhPizzaStoreFactory',
+            ],
+            'Ingredients' => [
+                'TheImplements' => [
+                    'Dough' => [
+                        'Thin',
+                        'Thick',
+                    ],
+                    'Saunce' => [
+                        'PlumTomato',
+                        'Marinara',
+                    ],
+                    'Clam' => [
+                        'Fresh',
+                        'Frozen',
+                    ],
+                    'Pepperoni' => [
+                        'White',
+                        'Black',
+                    ],
+                ],
+                'DoughIngredientInterface',
+                'SauceIngredientInterface',
+                'ClamIngredientInterface',
+                'PepperoniIngredientInterface',
+            ],
         ]
     ],
     'IteratorAndComposite' => [],

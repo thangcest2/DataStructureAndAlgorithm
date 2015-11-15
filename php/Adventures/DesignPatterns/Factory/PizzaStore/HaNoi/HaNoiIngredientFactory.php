@@ -14,37 +14,45 @@
 
 namespace DesignPatterns\Factory\PizzaStore\HaNoi;
 
-use DesignPatterns\Factory\PizzaStore\PizzaStoreFactoryAbstract;
+use DesignPatterns\Factory\PizzaStore\IngredientFactoryInterface;
+use DesignPatterns\Factory\PizzaStore\Ingredients\TheImplements as Ingredient;
 
 /**
- * Class HaNoiPizzaStoreFactory
+ * Class HaNoiIngredientFactory
  * @package DesignPatterns\Factory\PizzaStore\HaNoi
  */
-class HaNoiPizzaStoreFactory extends PizzaStoreFactoryAbstract
+class HaNoiIngredientFactory implements IngredientFactoryInterface
 {
 
     /**
-     * @var \DesignPatterns\Factory\PizzaStore\IngredientFactoryInterface
+     * @return Ingredient\Dough\Thin
      */
-    private $_ingredientFactory;
+    public function createDoughIngredient()
+    {
+        return new Ingredient\Dough\Thin();
+    }
 
     /**
-     * @param string $type
-     * @throw \RuntimeException
-     * @return \DesignPatterns\Factory\PizzaStore\PizzaAbstract
+     * @return Ingredient\Saunce\Marinara
      */
-    protected function createPizza($type)
+    public function createSauceIngredient()
     {
-        $this->_ingredientFactory = new HaNoiIngredientFactory();
+        return new Ingredient\Saunce\Marinara();
+    }
 
-        switch ($type) {
-            case "spaggeti" :
-                return new HaNoiSpaggetiPizza($this->_ingredientFactory);
-            case "cheese" :
-                return new HaNoiCheesePizza($this->_ingredientFactory);
-            default :
-                throw new \RuntimeException("No such type of pizza in this HN Store");
-        }
+    /**
+     * @return Ingredient\Pepperoni\Black
+     */
+    public function createPepperoniIngredient(){
+        return new Ingredient\Pepperoni\Black();
+    }
+
+    /**
+     * @return Ingredient\Clam\Fresh
+     */
+    public function createClamIngredient()
+    {
+        return new Ingredient\Clam\Fresh();
     }
 
 }

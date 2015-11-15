@@ -29,7 +29,7 @@ class Application
                 break;
 
             case 'factory' :
-                self::factoryApp();
+                self::factoryPizzaApp();
                 break;
 
             default :
@@ -116,15 +116,21 @@ class Application
 
     }
 
-    public static function factoryApp()
+    public static function factoryPizzaApp()
     {
         $pizzaStoreHN = new PizzaStore\HaNoi\HaNoiPizzaStoreFactory();
-        echo $pizzaStoreHN->orderPizza('spaggeti')->getName() . PHP_EOL;
+        $pizzaStoreHN->orderPizza('spaggeti');
+
+        $pizzaStoreHN = new PizzaStore\HaNoi\HaNoiPizzaStoreFactory();
+        $pizzaStoreHN->orderPizza('cheese');
 
         echo PHP_EOL;
 
         $pizzaStoreHCM = new PizzaStore\HoChiMinh\HoChiMinhPizzaStoreFactory();
-        echo $pizzaStoreHCM->orderPizza('cheese')->getName() . PHP_EOL;
+        $pizzaStoreHCM->orderPizza('cheese');
+
+        $pizzaStoreHCM = new PizzaStore\HoChiMinh\HoChiMinhPizzaStoreFactory();
+        $pizzaStoreHCM->orderPizza('spaggeti');
 
     }
 

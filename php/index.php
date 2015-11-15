@@ -18,6 +18,7 @@ $loader->registerNamespaces([
 ])->register();
 
 require PHP_BASE_PATH . '/Adventures/Application.php';
+require PHP_BASE_PATH . '/Utilities/Functions.php';
 
 //echo Utilities\BashColorsString::make("Type your app name, one of: " . PHP_EOL, 'red');
 //$listApps = [

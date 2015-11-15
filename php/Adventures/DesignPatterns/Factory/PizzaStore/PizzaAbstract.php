@@ -13,48 +13,97 @@
 */
 
 namespace DesignPatterns\Factory\PizzaStore;
-use Utilities\BashColorsString;
+
+    /**
+     * @abstract class PizzaAbstract
+     */
 
 /**
- * @abstract class PizzaAbstract
+ * Class PizzaAbstract
+ * @package DesignPatterns\Factory\PizzaStore
  */
+abstract class PizzaAbstract
+{
 
-abstract class PizzaAbstract {
-
+    /**
+     * @var string
+     */
     protected $_name;
 
-    protected $_dough;
-
+    /**
+     * @var \DesignPatterns\Factory\PizzaStore\Ingredients\SauceIngredientInterface
+     */
     protected $_sauce;
 
-    protected $_toppings = [];
+    /**
+     * @var \DesignPatterns\Factory\PizzaStore\Ingredients\DoughIngredientInterface
+     */
+    protected $_dough;
 
-    public function prepare() {
-        echo BashColorsString::make("Preparing " . $this->_name . PHP_EOL, 'yellow');
-        echo "Tossing dough" . PHP_EOL;
-        echo "Adding sauce" . PHP_EOL;
-        echo "Adding toppings: " . PHP_EOL;
-        $topCount = count($this->_toppings);
-        for ($i = 0; $i < $topCount; $i++) {
-            echo $this->_toppings[$i];
-        }
+    /**
+     * @var \DesignPatterns\Factory\PizzaStore\Ingredients\ClamIngredientInterface
+     */
+    protected $_clam;
 
-    }
+    /**
+     * @var \DesignPatterns\Factory\PizzaStore\Ingredients\PepperoniIngredientInterface
+     */
 
-    public function bake() {
+    protected $_pepperoni;
+
+
+    /**
+     * Let all the Concrete Pizza decide its IngredientFactory and create ingredient themselves
+     * -- but must in set of : sauce, dough, clam, pepperoni
+     * @note: Assume that the super pizza provider gave us these ingredients totally
+     *
+     * @return void
+     */
+    public abstract function prepare();
+
+    /**
+     * @return void
+     */
+    public function bake()
+    {
         echo "Baking in 20 mins" . PHP_EOL;
     }
 
-    public function cut() {
+    /**
+     * @return void
+     */
+    public function cut()
+    {
         echo "Cutting Pizza" . PHP_EOL;
     }
 
-    public function box() {
-        echo "Placing Pizza in official PizzaStore box" . PHP_EOL;
+    /**
+     * @return void
+     */
+    public function box()
+    {
+        echo "Placing Pizza in official PizzaStore box ... done !!!" . PHP_EOL;
     }
 
-    public function getName() {
+    /**
+     * @return string
+     */
+    public function getName()
+    {
         return $this->_name;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return implode(", ", [
+            $this->_dough->toString(),
+            $this->_sauce->toString(),
+            $this->_clam->toString(),
+            $this->_pepperoni->toString()
+        ]);
     }
 
 

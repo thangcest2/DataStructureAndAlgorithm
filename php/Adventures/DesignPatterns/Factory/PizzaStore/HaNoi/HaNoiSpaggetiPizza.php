@@ -13,17 +13,34 @@
 */
 
 namespace DesignPatterns\Factory\PizzaStore\HaNoi;
+
+use DesignPatterns\Factory\PizzaStore\IngredientFactoryInterface;
 use DesignPatterns\Factory\PizzaStore\PizzaAbstract;
 
 /**
-* @class HaNoiSpaggetiPizza
-*/
+ * @class HaNoiSpaggetiPizza
+ */
+class HaNoiSpaggetiPizza extends PizzaAbstract
+{
 
-class HaNoiSpaggetiPizza extends PizzaAbstract {
+    /**
+     * @var IngredientFactoryInterface
+     */
+    private $_ingredientFactory;
 
-    public function __construct()
+    public function __construct(IngredientFactoryInterface $ingredientFactory)
     {
-        $this->_name = "HN Spaggeti Pizza";
+        $this->_ingredientFactory = $ingredientFactory;
+        $this->_name              = "HN Spaggeti Pizza";
+    }
+
+    public function prepare()
+    {
+        echo "Preparing " . $this->_name . PHP_EOL;
+        $this->_dough = $this->_ingredientFactory->createDoughIngredient();
+        $this->_sauce = $this->_ingredientFactory->createSauceIngredient();
+        $this->_pepperoni = $this->_ingredientFactory->createPepperoniIngredient();
+        $this->_clam = $this->_ingredientFactory->createClamIngredient();
     }
 
     public function bake()
