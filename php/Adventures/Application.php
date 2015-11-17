@@ -32,6 +32,10 @@ class Application
                 self::factoryPizzaApp();
                 break;
 
+            case 'singleton' :
+                self::singletonApp();
+                break;
+
             default :
                 echo 'No app found or not yet code :v' . PHP_EOL;
                 break;
@@ -132,6 +136,14 @@ class Application
         $pizzaStoreHCM = new PizzaStore\HoChiMinh\HoChiMinhPizzaStoreFactory();
         $pizzaStoreHCM->orderPizza('spaggeti');
 
+    }
+
+    public static function singletonApp()
+    {
+//        \DesignPatterns\Singleton\EagerInstantiation\SingleTon::getInstance()->test();
+        \DesignPatterns\Singleton\SubClasses\SingleTon::getInstance()->test();
+        \DesignPatterns\Singleton\SubClasses\Test1::getInstance()->test2();
+        \DesignPatterns\Singleton\NonThreadSafe\SingleTon::getInstance()->test();
     }
 
 }

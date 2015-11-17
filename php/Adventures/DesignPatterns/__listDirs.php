@@ -98,7 +98,18 @@ return [
             'ManagerInterface',
         ]
     ],
-    'Singleton' => [],
+    'Singleton' => [
+        'EagerInstantiation' => [
+            'SingleTon'
+        ],
+        'NonThreadSafe' => [
+            'SingleTon',
+        ],
+        'SubClasses' => [
+            'SingleTon',
+            'Test1',
+        ]
+    ],
     'Strategy' => [],
     'State' => [],
     'Proxy' => [],
