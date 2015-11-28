@@ -12,32 +12,35 @@
  +------------------------------------------------------------------------+
 */
 
-namespace DesignPatterns\Singleton\EagerInstantiation;
+namespace DesignPatterns\Command\ImplementedCommands\GarageDoor;
+use DesignPatterns\Command\Core\CommandInterface;
+use DesignPatterns\Command\ExternalDevices\GarageDoor;
 
 /**
-* @class SingleTon
+* @class GarageDoorCloseCommand
 */
 
-class SingleTon
+class GarageDoorCloseCommand implements CommandInterface
 {
-    //syntax not support in php, but yes in java
-    //    private static $uniqueInstance = new SingleTon();
+    /**
+     * @var GarageDoor
+     */
+    private $_garageDoor;
 
-    private function __construct() {}
-
-    public static function getInstance() {
-        if (self::$uniqueInstance == null) {
-            self::$uniqueInstance = new SingleTon();
-        }
-        return self::$uniqueInstance;
-    }
-
-    public function test()
+    public function __construct(GarageDoor $garageDoor)
     {
-        echo 'Hello world !!!' . PHP_EOL;
+        $this->_garageDoor = $garageDoor;
     }
 
+    public function execute()
+    {
+        $this->_garageDoor->down();
+    }
 
-
+    public function undo()
+    {
+        $this->_garageDoor->up();
+        $this->_garageDoor->lightOn();
+    }
 
 }

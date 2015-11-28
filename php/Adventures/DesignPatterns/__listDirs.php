@@ -1,7 +1,32 @@
 <?php
 return [
     'AdapterAndFacade' => [],
-    'Command' => [],
+    'Command' => [
+        'CommandInterface',
+        'SimpleRemoteControl',
+        'RealRemoteControl',
+        //commands
+        'NoCommand',
+        'LightOnCommand',
+        'LightOffCommand',
+        'GarageDoorOpenCommand',
+        'GarageDoorCloseCommand',
+        'StereoOnWithCDCommand',
+        'StereoOffWithCDCommand',
+        'CeillingFanCommandGeneral',
+        'CeillingFanHightCommand',
+        'CeillingFanMediumCommand',
+        'CeillingFanLowCommand',
+        'CeillingFanOffCommand',
+        //macros
+        'MacroCommand',
+        //remote apis
+        'Light',
+        'GarageDoor',
+        'Stereo',
+        'CeilingFan',
+
+    ],
     'Decorator' => [
         'FileSystem' => [
             'InputAbstracts' => [

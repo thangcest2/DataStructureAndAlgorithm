@@ -12,32 +12,33 @@
  +------------------------------------------------------------------------+
 */
 
-namespace DesignPatterns\Singleton\EagerInstantiation;
+namespace DesignPatterns\Command;
+use DesignPatterns\Command\Core\CommandInterface;
 
 /**
-* @class SingleTon
+* @class SimpleRemoteControl
 */
 
-class SingleTon
+class SimpleRemoteControl
 {
-    //syntax not support in php, but yes in java
-    //    private static $uniqueInstance = new SingleTon();
+    /**
+     * @var CommandInterface
+     */
+    protected $_slotCommand;
 
-    private function __construct() {}
-
-    public static function getInstance() {
-        if (self::$uniqueInstance == null) {
-            self::$uniqueInstance = new SingleTon();
-        }
-        return self::$uniqueInstance;
-    }
-
-    public function test()
+    public function __construct()
     {
-        echo 'Hello world !!!' . PHP_EOL;
+
     }
 
+    public function setCommand(CommandInterface $command)
+    {
+        $this->_slotCommand = $command;
+    }
 
-
+    public function buttonWasPressed()
+    {
+        $this->_slotCommand->execute();
+    }
 
 }

@@ -12,32 +12,23 @@
  +------------------------------------------------------------------------+
 */
 
-namespace DesignPatterns\Singleton\EagerInstantiation;
+namespace DesignPatterns\Command\ImplementedCommands;
+use DesignPatterns\Command\Core\CommandInterface;
 
 /**
-* @class SingleTon
+* @class NoCommand
 */
 
-class SingleTon
+class NoCommand implements CommandInterface
 {
-    //syntax not support in php, but yes in java
-    //    private static $uniqueInstance = new SingleTon();
-
-    private function __construct() {}
-
-    public static function getInstance() {
-        if (self::$uniqueInstance == null) {
-            self::$uniqueInstance = new SingleTon();
-        }
-        return self::$uniqueInstance;
-    }
-
-    public function test()
+    public function execute()
     {
-        echo 'Hello world !!!' . PHP_EOL;
+        echo 'Idle !!!' . PHP_EOL;
     }
 
-
-
+    public function undo()
+    {
+        echo 'Undoing nothing :v' . PHP_EOL;
+    }
 
 }

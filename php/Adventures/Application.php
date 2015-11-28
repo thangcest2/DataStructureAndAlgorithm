@@ -3,6 +3,7 @@
 use Utilities\BashColorsString;
 use \DesignPatterns\Decorator\StarbuzzCoffee as Starbuzz;
 use \DesignPatterns\Factory\PizzaStore as PizzaStore;
+use \DesignPatterns\Command as CMD;
 
 class Application
 {
@@ -36,6 +37,11 @@ class Application
                 self::singletonApp();
                 break;
 
+            case 'command' :
+                self::commandApp();
+                break;
+
+
             default :
                 echo 'No app found or not yet code :v' . PHP_EOL;
                 break;
@@ -56,13 +62,14 @@ class Application
         $publisher->setMeasurement(15, 8.5, 3.4);
         echo PHP_EOL;
 
-        $publisher->removeObserver($device1);
+//        $publisher->removeObserver($device1);
         $publisher->setMeasurement(15, 8.5, 3.4);
         echo PHP_EOL;
 
-        $publisher->removeObserver($device2);
+//        $publisher->removeObserver($device2);
         $publisher->setMeasurement(15, 8.5, 3.4);
         echo PHP_EOL;
+
     }
 
     public static function diApp()
@@ -142,8 +149,98 @@ class Application
     {
 //        \DesignPatterns\Singleton\EagerInstantiation\SingleTon::getInstance()->test();
         \DesignPatterns\Singleton\SubClasses\SingleTon::getInstance()->test();
-        \DesignPatterns\Singleton\SubClasses\Test1::getInstance()->test2();
+//        \DesignPatterns\Singleton\SubClasses\Test1::getInstance()->test2();
         \DesignPatterns\Singleton\NonThreadSafe\SingleTon::getInstance()->test();
+    }
+
+    public static function commandApp()
+    {
+        $remote = new CMD\RealRemoteControl();
+        echo BashColorsString::make("Example for full feature of command pattern:" . PHP_EOL, 'yellow');
+
+        $ceilingFan = new CMD\ExternalDevices\CeilingFan("Living Room");
+        $fanHightCommand = new CMD\ImplementedCommands\CeilingFan\CeilingFanHightCommand($ceilingFan);
+        $fanMediumCommand = new CMD\ImplementedCommands\CeilingFan\CeilingFanMediumCommand($ceilingFan);
+        $fanLowCommand = new CMD\ImplementedCommands\CeilingFan\CeilingFanLowCommand($ceilingFan);
+        $fanOffCommand = new CMD\ImplementedCommands\CeilingFan\CeilingFanOffCommand($ceilingFan);
+        $remote->setCommand(0, $fanMediumCommand, $fanOffCommand);
+        $remote->setCommand(1, $fanHightCommand, $fanOffCommand);
+        $remote->setCommand(2, $fanLowCommand, $fanOffCommand);
+
+        echo BashColorsString::make("On pressed at 0." . PHP_EOL, 'brown');
+        $remote->onButtonWasPressed(0);
+        echo BashColorsString::make("Off pressed at 0." . PHP_EOL, 'brown');
+        $remote->offButtonWasPressed(0);
+        echo BashColorsString::make("Undoing ..." . PHP_EOL, 'brown');
+        $remote->undoButtonWasPressed();
+        echo BashColorsString::make("On pressed at 1." . PHP_EOL, 'brown');
+        $remote->onButtonWasPressed(1);
+        echo BashColorsString::make("Undoing ..." . PHP_EOL, 'brown');
+        $remote->undoButtonWasPressed();
+
+        echo BashColorsString::make("---END." . PHP_EOL . PHP_EOL, 'yellow');
+
+        echo BashColorsString::make("Example for macro command:" . PHP_EOL, 'yellow');
+
+        
+        $light = new CMD\ExternalDevices\Light("Living Room");
+        $garageDoor = new CMD\ExternalDevices\GarageDoor("");
+        $stereo = new CMD\ExternalDevices\Stereo("Living Room");
+        //on
+        $lightOn = new CMD\ImplementedCommands\Light\LightOnCommand($light);
+        $garageDoorOpen = new CMD\ImplementedCommands\GarageDoor\GarageDoorOpenCommand($garageDoor);
+        $stereoOn = new CMD\ImplementedCommands\Stereo\StereoOnWithCDCommand($stereo);
+
+        //off
+        $lightOff = new CMD\ImplementedCommands\Light\LightOffCommand($light);
+        $garageDoorClose = new CMD\ImplementedCommands\GarageDoor\GarageDoorCloseCommand($garageDoor);
+        $stereoOff = new CMD\ImplementedCommands\Stereo\StereoOffWithCDCommand($stereo);
+
+        $macroOn = new CMD\ImplementedCommands\MacroCommand([$lightOn, $garageDoorOpen, $stereoOn]);
+        $macroOff = new CMD\ImplementedCommands\MacroCommand([$lightOff, $garageDoorClose, $stereoOff]);
+
+        $remote->setCommand(0, $macroOn, $macroOff);
+        echo BashColorsString::make("On pressed." . PHP_EOL, 'brown');
+        $remote->onButtonWasPressed(0);
+        echo BashColorsString::make("Off pressed." . PHP_EOL, 'brown');
+        $remote->offButtonWasPressed(0);
+        echo BashColorsString::make("Undoing ..." . PHP_EOL, 'brown');
+        $remote->undoButtonWasPressed();
+        echo BashColorsString::make("---END." . PHP_EOL . PHP_EOL , 'yellow');
+
+        
+//
+//        $lightOnCommand = new CMD\LightOnCommand($light);
+//        $lightOffCommand = new CMD\LightOffCommand($light);
+//        $garageDoorOpenCommand = new CMD\GarageDoorOpenCommand($garageDoor);
+//        $garageDoorCloseCommand = new CMD\GarageDoorCloseCommand($garageDoor);
+//        $stereoOnCommand = new CMD\StereoOnWithCDCommand($stereo);
+//        $stereoOffCommand = new CMD\StereoOffWithCDCommand($stereo);
+//
+//        $remote->setCommand(0, $lightOnCommand, $lightOffCommand);
+//        $remote->onButtonWasPressed(0);
+//        $remote->offButtonWasPressed(0);
+//        $remote->undoButtonWasPressed();
+//        $remote->offButtonWasPressed(0);
+//        $remote->onButtonWasPressed(0);
+//        $remote->undoButtonWasPressed();
+//        echo PHP_EOL;
+//
+//        $remote->setCommand(0, $garageDoorOpenCommand, $garageDoorCloseCommand);
+//        $remote->onButtonWasPressed(0);
+//        $remote->offButtonWasPressed(0);
+//        echo PHP_EOL;
+//
+//        $remote->setCommand(2, $stereoOnCommand, $stereoOffCommand);
+//        $remote->onButtonWasPressed(2);
+//        $remote->undoButtonWasPressed();
+//        $remote->offButtonWasPressed(2);
+//        echo PHP_EOL;
+//
+//        $remote->onButtonWasPressed(4);
+//        $remote->undoButtonWasPressed();
+//        $remote->offButtonWasPressed(4);
+
     }
 
 }

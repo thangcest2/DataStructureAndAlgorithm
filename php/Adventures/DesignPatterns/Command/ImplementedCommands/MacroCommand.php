@@ -12,32 +12,39 @@
  +------------------------------------------------------------------------+
 */
 
-namespace DesignPatterns\Singleton\EagerInstantiation;
+namespace DesignPatterns\Command\ImplementedCommands;
+use DesignPatterns\Command\Core\CommandInterface;
 
 /**
-* @class SingleTon
-*/
+ * @class MacroCommand
+ */
 
-class SingleTon
+class MacroCommand implements CommandInterface
 {
-    //syntax not support in php, but yes in java
-    //    private static $uniqueInstance = new SingleTon();
+    /**
+     * @var CommandInterface[]
+     */
+    private $_commands = [];
 
-    private function __construct() {}
-
-    public static function getInstance() {
-        if (self::$uniqueInstance == null) {
-            self::$uniqueInstance = new SingleTon();
-        }
-        return self::$uniqueInstance;
-    }
-
-    public function test()
+    public function __construct($command)
     {
-        echo 'Hello world !!!' . PHP_EOL;
+        $this->_commands = $command;
     }
 
+    public function execute()
+    {
+        $cmds = count($this->_commands);
+        for ($i = 0; $i < $cmds; $i++) {
+            $this->_commands[$i]->execute();
+        }
+    }
 
-
+    public function undo()
+    {
+        $cmds = count($this->_commands);
+        for ($i = 0; $i < $cmds; $i++) {
+            $this->_commands[$i]->undo();
+        }
+    }
 
 }

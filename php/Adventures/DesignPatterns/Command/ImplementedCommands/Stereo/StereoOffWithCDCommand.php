@@ -12,32 +12,37 @@
  +------------------------------------------------------------------------+
 */
 
-namespace DesignPatterns\Singleton\EagerInstantiation;
+namespace DesignPatterns\Command\ImplementedCommands\Stereo;
+use DesignPatterns\Command\Core\CommandInterface;
+use DesignPatterns\Command\ExternalDevices\Stereo;
 
 /**
-* @class SingleTon
+* @class StereoOffWithCDCommand
 */
 
-class SingleTon
+class StereoOffWithCDCommand implements CommandInterface
 {
-    //syntax not support in php, but yes in java
-    //    private static $uniqueInstance = new SingleTon();
 
-    private function __construct() {}
+    /**
+     * @var Stereo
+     */
+    private $_stereo;
 
-    public static function getInstance() {
-        if (self::$uniqueInstance == null) {
-            self::$uniqueInstance = new SingleTon();
-        }
-        return self::$uniqueInstance;
-    }
-
-    public function test()
+    public function __construct(Stereo $stereo)
     {
-        echo 'Hello world !!!' . PHP_EOL;
+        $this->_stereo = $stereo;
     }
 
+    public function execute()
+    {
+        $this->_stereo->off();
+    }
 
-
+    public function undo()
+    {
+        $this->_stereo->on();
+        $this->_stereo->setCD();
+        $this->_stereo->setVolume(11);
+    }
 
 }

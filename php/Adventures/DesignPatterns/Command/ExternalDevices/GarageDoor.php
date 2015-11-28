@@ -12,32 +12,49 @@
  +------------------------------------------------------------------------+
 */
 
-namespace DesignPatterns\Singleton\EagerInstantiation;
+namespace DesignPatterns\Command\ExternalDevices;
 
 /**
-* @class SingleTon
+* @class GarageDoor
 */
 
-class SingleTon
+class GarageDoor
 {
-    //syntax not support in php, but yes in java
-    //    private static $uniqueInstance = new SingleTon();
+    private $_name;
 
-    private function __construct() {}
-
-    public static function getInstance() {
-        if (self::$uniqueInstance == null) {
-            self::$uniqueInstance = new SingleTon();
-        }
-        return self::$uniqueInstance;
-    }
-
-    public function test()
+    public function __construct($name)
     {
-        echo 'Hello world !!!' . PHP_EOL;
+        $this->_name = $name;
     }
 
+    public function getName()
+    {
+        return $this->_name;
+    }
 
+    public function up()
+    {
+        echo $this->_name . " Door uping" . PHP_EOL;
+    }
 
+    public function down()
+    {
+        echo $this->_name . " Door downing" . PHP_EOL;
+    }
+
+    public function stop()
+    {
+        echo $this->_name . " Door stopped" . PHP_EOL;
+    }
+
+    public function lightOn()
+    {
+        echo $this->_name . " Garage Light is on" . PHP_EOL;
+    }
+
+    public function lightOff()
+    {
+        echo $this->_name . " Garage Light is off" . PHP_EOL;
+    }
 
 }

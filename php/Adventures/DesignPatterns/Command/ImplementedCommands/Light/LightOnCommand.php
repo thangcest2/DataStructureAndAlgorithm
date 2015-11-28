@@ -12,32 +12,40 @@
  +------------------------------------------------------------------------+
 */
 
-namespace DesignPatterns\Singleton\EagerInstantiation;
+namespace DesignPatterns\Command\ImplementedCommands\Light;
+use DesignPatterns\Command\Core\CommandInterface;
+use DesignPatterns\Command\ExternalDevices\Light;
 
 /**
-* @class SingleTon
-*/
+ * @class LightOnCommand
+ */
 
-class SingleTon
+class LightOnCommand implements CommandInterface
 {
-    //syntax not support in php, but yes in java
-    //    private static $uniqueInstance = new SingleTon();
+    /**
+     * @var Light
+     */
+    protected $_light;
 
-    private function __construct() {}
-
-    public static function getInstance() {
-        if (self::$uniqueInstance == null) {
-            self::$uniqueInstance = new SingleTon();
-        }
-        return self::$uniqueInstance;
-    }
-
-    public function test()
+    /**
+     * @param $light Light
+     */
+    public function __construct(Light $light)
     {
-        echo 'Hello world !!!' . PHP_EOL;
+        $this->_light = $light;
     }
 
+    /**
+     *
+     */
+    public function execute()
+    {
+        $this->_light->on();
+    }
 
-
+    public function undo()
+    {
+        $this->_light->off();
+    }
 
 }

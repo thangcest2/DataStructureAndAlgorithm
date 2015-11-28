@@ -96,7 +96,7 @@ function genHeadDocOnly($file) {
         return;
     }
 
-    $a = preg_replace("/\<\?php/", '${1}<?php' . PHP_EOL . $headDoc , $content);
+    $a = preg_replace("~\<\?php/", '${1}<?php~' . PHP_EOL . $headDoc , $content);
     file_put_contents($file, $a);
 }
 

@@ -187,6 +187,8 @@ class Vector
             $this->_elementData[$i] = $o;
         }
 
+        return $this->_elementData;
+
     }
 
 

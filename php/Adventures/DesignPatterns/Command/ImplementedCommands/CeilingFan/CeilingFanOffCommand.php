@@ -12,32 +12,17 @@
  +------------------------------------------------------------------------+
 */
 
-namespace DesignPatterns\Singleton\EagerInstantiation;
+namespace DesignPatterns\Command\ImplementedCommands\CeilingFan;
 
 /**
-* @class SingleTon
+* @class CeilingFanOffCommand
 */
 
-class SingleTon
+class CeilingFanOffCommand extends CeilingFanCommandGeneral
 {
-    //syntax not support in php, but yes in java
-    //    private static $uniqueInstance = new SingleTon();
-
-    private function __construct() {}
-
-    public static function getInstance() {
-        if (self::$uniqueInstance == null) {
-            self::$uniqueInstance = new SingleTon();
-        }
-        return self::$uniqueInstance;
+    public function execute() {
+        $this->_previousSpeed = $this->_ceilingFan->getSpeed();
+        echo "Speed now is " . $this->_previousSpeed . PHP_EOL;
+        $this->_ceilingFan->off();
     }
-
-    public function test()
-    {
-        echo 'Hello world !!!' . PHP_EOL;
-    }
-
-
-
-
 }
