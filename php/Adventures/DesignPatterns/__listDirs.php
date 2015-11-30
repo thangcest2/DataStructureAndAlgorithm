@@ -1,30 +1,65 @@
 <?php
 return [
-    'AdapterAndFacade' => [],
+    'AdapterAndFacade' => [
+        'Adapter' => [
+            'TurKeyInterface',
+            'WildTurkey',
+            'TurkeyAdapter',
+            'DuckInterface',
+            'MallardDuck',
+            'DogInterface',
+            'DogAdapter',
+            'BlackDog',
+        ],
+        'Facade' => [
+            'HomeTheaterSystem' => [
+                'Amplifer',
+                'Tuner',
+                'DvdPlayer',
+                'CdPlayer',
+                'Projector',
+                'TheaterLights',
+                'Screen',
+                'PopcornPopper',
+            ],
+            'HomeTheaterFacade'
+        ]
+    ],
     'Command' => [
-        'CommandInterface',
         'SimpleRemoteControl',
         'RealRemoteControl',
-        //commands
-        'NoCommand',
-        'LightOnCommand',
-        'LightOffCommand',
-        'GarageDoorOpenCommand',
-        'GarageDoorCloseCommand',
-        'StereoOnWithCDCommand',
-        'StereoOffWithCDCommand',
-        'CeillingFanCommandGeneral',
-        'CeillingFanHightCommand',
-        'CeillingFanMediumCommand',
-        'CeillingFanLowCommand',
-        'CeillingFanOffCommand',
-        //macros
-        'MacroCommand',
-        //remote apis
-        'Light',
-        'GarageDoor',
-        'Stereo',
-        'CeilingFan',
+        'Core' => [
+            'CommandInterface',
+        ],
+        'ExternalDevices' => [
+            'Light',
+            'GarageDoor',
+            'Stereo',
+            'CeilingFan',
+        ],
+        'ImplementedCommands' => [
+            'Light' => [
+                'LightOnCommand',
+                'LightOffCommand',
+            ],
+            'GarageDoor' => [
+                'GarageDoorOpenCommand',
+                'GarageDoorCloseCommand',
+            ],
+            'Stereo' => [
+                'StereoOnWithCDCommand',
+                'StereoOffWithCDCommand',
+            ],
+            'CeilingFan' => [
+                'CeillingFanCommandGeneral',
+                'CeillingFanHightCommand',
+                'CeillingFanMediumCommand',
+                'CeillingFanLowCommand',
+                'CeillingFanOffCommand',
+            ],
+            'NoCommand',
+            'MacroCommand',
+        ],
 
     ],
     'Decorator' => [

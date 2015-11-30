@@ -4,6 +4,7 @@ use Utilities\BashColorsString;
 use \DesignPatterns\Decorator\StarbuzzCoffee as Starbuzz;
 use \DesignPatterns\Factory\PizzaStore as PizzaStore;
 use \DesignPatterns\Command as CMD;
+use DesignPatterns\AdapterAndFacade\Facade\HomeTheaterSystem as HTS;
 
 class Application
 {
@@ -39,6 +40,9 @@ class Application
 
             case 'command' :
                 self::commandApp();
+                break;
+            case 'adapterandfacade' :
+                self::adapterAndFacadeApp();
                 break;
 
 
@@ -240,6 +244,83 @@ class Application
 //        $remote->onButtonWasPressed(4);
 //        $remote->undoButtonWasPressed();
 //        $remote->offButtonWasPressed(4);
+
+    }
+
+    public static function adapterAndFacadeApp()
+    {
+        //adapter
+        echo BashColorsString::make("Adapter pattern: " . PHP_EOL, 'brown');
+
+        $duckMethod = function($duck) {
+            if ($duck instanceof \DesignPatterns\AdapterAndFacade\Adapter\DuckInterface) {
+                $duck->quack();
+                $duck->fly();
+            }
+        };
+
+        /**
+         * @definition:
+         *  - Turkey want to be called as a duck ... use TurkeyAdapter
+         *  - Client (code below) just know to call a Duck
+         *
+         * --> The duckMethod() just be called without knowing the instance is a duck or a turkey
+         */
+        //client
+        $mDuck = new \DesignPatterns\AdapterAndFacade\Adapter\MallardDuck();
+        //adaptees
+        $wTurkey = new \DesignPatterns\AdapterAndFacade\Adapter\WildTurkey();
+        $bDog = new \DesignPatterns\AdapterAndFacade\Adapter\BlackDog();
+        //adapters
+        $turkeyAdapter = new \DesignPatterns\AdapterAndFacade\Adapter\TurkeyAdapter($wTurkey);
+        $dogAdapter = new \DesignPatterns\AdapterAndFacade\Adapter\DogAdapter($bDog);
+
+
+        BashColorsString::make("The Wild Turkey says..." . PHP_EOL, 'yellow');
+        $wTurkey->gobble();
+        $wTurkey->fly();
+        echo PHP_EOL;
+
+        BashColorsString::make("The Black Dog says..." . PHP_EOL, 'yellow');
+        $bDog->gogo();
+        $bDog->jump();
+        echo PHP_EOL;
+
+        BashColorsString::make("The Mallard Duck says..." . PHP_EOL, 'yellow');
+        $duckMethod($mDuck);
+        echo PHP_EOL;
+
+        BashColorsString::make("The Turkey Adapter says..." . PHP_EOL, 'yellow');
+        $duckMethod($turkeyAdapter);
+        echo PHP_EOL;
+
+        BashColorsString::make("The Black Dog says..." . PHP_EOL, 'yellow');
+        $duckMethod($dogAdapter);
+        echo PHP_EOL;
+
+
+        //facade
+        echo BashColorsString::make("Facade pattern: " . PHP_EOL, 'brown');
+        $amplifier = new HTS\Amplifer("ThangTD Amplifier");
+        $tuner = new HTS\Tuner("Top Of Line Tuner", $amplifier);
+        $dvd = new HTS\DvdPlayer("Disney 3.0 DVD", $amplifier);
+        $projector = new HTS\Projector("Samsung VGA Projector", $dvd);
+        $light = new HTS\TheaterLights("Philip Neon Light");
+        $screen = new HTS\Screen("Mac Screen");
+        $popcorn = new HTS\PopcornPopper("Free Style Popcorn Maker");
+
+        $homeTheater = new \DesignPatterns\AdapterAndFacade\Facade\HomeTheaterFacade(
+            $amplifier,
+            $tuner,
+            $dvd,
+            $projector,
+            $light,
+            $screen,
+            $popcorn
+        );
+
+        $homeTheater->watchMovie("Mickey Mouse");
+        $homeTheater->endMovie();
 
     }
 
