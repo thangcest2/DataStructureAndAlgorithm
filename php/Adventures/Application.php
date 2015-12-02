@@ -44,6 +44,9 @@ class Application
             case 'adapterandfacade' :
                 self::adapterAndFacadeApp();
                 break;
+            case 'templatemethod' :
+                self::templateMethodApp();
+                break;
 
 
             default :
@@ -321,6 +324,17 @@ class Application
 
         $homeTheater->watchMovie("Mickey Mouse");
         $homeTheater->endMovie();
+
+    }
+
+    public static function templateMethodApp()
+    {
+        $coffee = new \DesignPatterns\TemplateMethod\Coffee();
+        $tea = new \DesignPatterns\TemplateMethod\Tea();
+        echo BashColorsString::make("Coffee with hook" . PHP_EOL, 'yellow');
+        $coffee->prepareRecipe();
+        echo BashColorsString::make("Tea with hook" . PHP_EOL, 'yellow');
+        $tea->prepareRecipe();
 
     }
 

@@ -172,6 +172,11 @@ return [
     ],
     'Strategy' => [],
     'State' => [],
+    'TemplateMethod' => [
+        'CaffeineBeverageAbstract',
+        'Tea',
+        'Coffee',
+    ],
     'Proxy' => [],
     'Compound' => [],
 
