@@ -15,82 +15,103 @@ This repo requires:
 
 ```
 php
-----Adventures
---------DesignPatterns
-------------AdapterAndFacade
-------------Command
-------------Compound
-------------Decorator
-----------------FileSystem
---------------------InputAbstracts
---------------------InputStreams
---------------------StreamDecorators
-----------------StarbuzzCoffee
---------------------TheAbstracts
---------------------TheCondiments
---------------------TheDrinks
-------------DependencyInjection
-------------Factory
-----------------Core
-----------------PizzaStore
---------------------HaNoi
---------------------HoChiMinh
-------------IteratorAndComposite
-------------LeftOvers
-----------------Bridge
-----------------Builder
-----------------ChainOfResponsibility
-----------------FlyWeight
-----------------Interpreter
-----------------Mediator
-----------------Memento
-----------------Prototype
-----------------Visitor
-------------Mvc
-----------------Flash
-----------------Model
-----------------Session
-----------------View
-----------------WebMethods
---------------------Http
-------------Observer
-----------------EventManagerPhalcon
-----------------Events
-----------------Observer
---------------------Core
-----------------WeatherApp
-------------Proxy
-------------Singleton
-------------State
-------------Strategy
---------OOPCore
-------------ArrayObject
-------------Magics
---------Services
-------------Autoload
-------------Debugging
-----------------Xdebug
---------------------Debug
---------------------Profile
---------------------Trace
-------------ErrorHandler
-------------Performance
-----------------Compressed
-----------------Memcached
-----------------MongoDB
-----------------Redis
-------------Redis
-------------Searching
-----------------ElasticSearch
-----------------Solr
-------------Task
-----------------Beanstalk
-----------------Gearman
-----------------RabbitMQ
-----BookPractises
-----InterviewJorkes
-----ShellGames
-----Utilities
+├── Adventures
+│   ├── DesignPatterns
+│   │   ├── AdapterAndFacade
+│   │   │   ├── Adapter
+│   │   │   └── Facade
+│   │   │       └── HomeTheaterSystem
+│   │   ├── Command
+│   │   │   ├── Core
+│   │   │   ├── ExternalDevices
+│   │   │   └── ImplementedCommands
+│   │   │       ├── CeilingFan
+│   │   │       ├── GarageDoor
+│   │   │       ├── Light
+│   │   │       └── Stereo
+│   │   ├── Compound
+│   │   ├── Decorator
+│   │   │   ├── FileSystem
+│   │   │   │   ├── InputAbstracts
+│   │   │   │   ├── InputStreams
+│   │   │   │   └── StreamDecorators
+│   │   │   └── StarbuzzCoffee
+│   │   │       ├── TheAbstracts
+│   │   │       ├── TheCondiments
+│   │   │       └── TheDrinks
+│   │   ├── DependencyInjection
+│   │   ├── Factory
+│   │   │   ├── Core
+│   │   │   └── PizzaStore
+│   │   │       ├── HaNoi
+│   │   │       ├── HoChiMinh
+│   │   │       └── Ingredients
+│   │   │           └── TheImplements
+│   │   │               ├── Clam
+│   │   │               ├── Dough
+│   │   │               ├── Pepperoni
+│   │   │               └── Saunce
+│   │   ├── IteratorAndComposite
+│   │   │   └── Iterator
+│   │   ├── LeftOvers
+│   │   │   ├── Bridge
+│   │   │   ├── Builder
+│   │   │   ├── ChainOfResponsibility
+│   │   │   ├── FlyWeight
+│   │   │   ├── Interpreter
+│   │   │   ├── Mediator
+│   │   │   ├── Memento
+│   │   │   ├── Prototype
+│   │   │   └── Visitor
+│   │   ├── Mvc
+│   │   │   ├── Flash
+│   │   │   ├── Model
+│   │   │   ├── Session
+│   │   │   ├── View
+│   │   │   └── WebMethods
+│   │   │       └── Http
+│   │   ├── Observer
+│   │   │   ├── EventManagerPhalcon
+│   │   │   ├── Events
+│   │   │   ├── Observer
+│   │   │   │   └── Core
+│   │   │   └── WeatherApp
+│   │   ├── Proxy
+│   │   ├── Singleton
+│   │   │   ├── EagerInstantiation
+│   │   │   ├── NonThreadSafe
+│   │   │   └── SubClasses
+│   │   ├── State
+│   │   ├── Strategy
+│   │   └── TemplateMethod
+│   ├── OOPCore
+│   │   ├── ArrayObject
+│   │   ├── Exception
+│   │   └── Iterator
+│   └── Services
+│       ├── Autoload
+│       ├── Debugging
+│       │   └── Xdebug
+│       │       ├── Debug
+│       │       ├── Profile
+│       │       └── Trace
+│       ├── ErrorHandler
+│       ├── Performance
+│       │   ├── Compressed
+│       │   ├── Memcached
+│       │   ├── MongoDB
+│       │   └── Redis
+│       ├── Searching
+│       │   ├── ElasticSearch
+│       │   └── Solr
+│       └── Task
+│           ├── Beanstalk
+│           ├── Gearman
+│           └── RabbitMQ
+├── BookPractises
+├── InterviewJorkes
+├── ShellGames
+└── Utilities
 
 ```
 
