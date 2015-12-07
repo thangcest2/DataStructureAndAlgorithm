@@ -13,13 +13,15 @@
 */
 
 namespace OOPCore\ArrayObject;
+use OOPCore\Exception\IllegalStateException;
+use OOPCore\Iterator\IteratorInterface;
 use OOPCore\Object;
 
 /**
  * Class Vector
  * @package OOPCore\ArrayObject
  */
-class Vector
+class Vector extends CollectionAbstract
 {
     /**
      * @var \OOPCore\Object[]
@@ -32,7 +34,7 @@ class Vector
     protected $_elementCount;
 
     /**
-     * @var \OOPCore\Object[] | \OOPCore\ArrayObject\Collection $obs
+     * @var \OOPCore\Object[] | \OOPCore\ArrayObject\CollectionAbstract $obs
      */
     public function __construct($obs = [])
     {
@@ -154,6 +156,15 @@ class Vector
     }
 
     /**
+     * @param int $i
+     * @return bool
+     */
+    public function hasElementAt($i)
+    {
+        return isset($this->_elementData[$i]);
+    }
+
+    /**
      * @throws \LengthException
      * @return \OOPCore\Object
      */
@@ -178,6 +189,16 @@ class Vector
         return $this->_elementData[$this->_elementCount-1];
     }
 
+    public function addAll(CollectionInterface $c)
+    {
+        return parent::addAll($c);
+    }
+
+    public function removeAll(CollectionInterface $c)
+    {
+        return parent::removeAll($c);
+    }
+
     /**
      * convert all elements in Vector to array
      */
@@ -186,10 +207,76 @@ class Vector
         foreach ($this->_elementData as $i => $o) {
             $this->_elementData[$i] = $o;
         }
-
         return $this->_elementData;
+
+    }
+
+    public function getIterator()
+    {
+        return new VectorIterator($this);
+    }
+
+}
+
+class VectorIterator implements IteratorInterface {
+    /**
+     * @var Vector
+     */
+    private $_items;
+
+    private $_pos = 0;
+
+    private $_lastRes = -1;
+
+    /**
+     * @param Vector $items
+     */
+    public function __construct(Vector $items)
+    {
+        $this->_items = $items;
+    }
+
+    public function next()
+    {
+        $item = $this->_items->elementAt($this->_pos);
+        $this->_lastRes = $this->_pos;
+        $this->_pos++;
+        return $item;
+    }
+
+    public function key()
+    {
+        return $this->_pos;
+    }
+
+    public function current()
+    {
+        return $this->_items->elementAt($this->_pos);
+    }
+
+    public function valid()
+    {
+        return $this->_items->hasElementAt($this->_pos);
+    }
+
+    public function rewind()
+    {
+        $this->_pos = 0;
+        $this->_lastRes = -1;
+    }
+
+    public function remove()
+    {
+        if ($this->_lastRes === -1) {
+            throw new IllegalStateException("Last result in Vector Iterator === -1");
+        }
+
+        $this->_items->removeElementAt($this->_lastRes);
+        $this->_pos = $this->_lastRes;
+        $this->_lastRes = -1;
 
     }
 
 
 }
+

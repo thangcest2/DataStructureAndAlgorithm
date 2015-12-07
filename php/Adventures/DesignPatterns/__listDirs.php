@@ -138,7 +138,19 @@ return [
             ],
         ]
     ],
-    'IteratorAndComposite' => [],
+    'IteratorAndComposite' => [
+        'Iterator' => [
+            'MenuItem',
+            'PancakeHouseMenu',
+            'DinnerMenu',
+            'Waitress',
+            'DinnerMenuIterator',
+        ],
+        'Composite' => [
+            'MenuComponentAbstract',
+            'Menu',
+        ],
+    ],
     'Observer' => [
         'Observer' => [
             'Core' => [

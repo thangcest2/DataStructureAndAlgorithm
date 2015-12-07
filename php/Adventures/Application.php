@@ -1,17 +1,21 @@
 <?php
 
-use Utilities\BashColorsString;
+use Utilities\Bash;
 use \DesignPatterns\Decorator\StarbuzzCoffee as Starbuzz;
 use \DesignPatterns\Factory\PizzaStore as PizzaStore;
 use \DesignPatterns\Command as CMD;
 use DesignPatterns\AdapterAndFacade\Facade\HomeTheaterSystem as HTS;
+
+use \DesignPatterns\IteratorAndComposite\Composite\Menu as Menu;
+use \DesignPatterns\IteratorAndComposite\Iterator\MenuItem as MenuItem;
+
 
 class Application
 {
     public static function run($key)
     {
         echo "--------------------------------------------" . PHP_EOL . PHP_EOL;
-        echo BashColorsString::make("Below is a test result of '$key' application: ", 'red') . PHP_EOL;
+        echo Bash::makeColor("Below is a test result of '$key' application: ", 'red') . PHP_EOL;
 
         switch ($key) {
             case 'observer':
@@ -46,6 +50,10 @@ class Application
                 break;
             case 'templatemethod' :
                 self::templateMethodApp();
+                break;
+
+            case 'iteratorandcomposite' :
+                self::iteratorAndCompositeApp();
                 break;
 
 
@@ -124,13 +132,13 @@ class Application
         $capuchino = new Starbuzz\TheDrinks\CapuchinoBeverage(5);
         $capuchino = new Starbuzz\TheCondiments\SoyCondiment($capuchino, 0.5);
         $capuchino = new Starbuzz\TheCondiments\MochaCondiment($capuchino, 0.9);
-        echo BashColorsString::make($capuchino->getDescription() . ": " . $capuchino->cost() . '$' . PHP_EOL, 'yellow');
+        echo Bash::makeColor($capuchino->getDescription() . ": " . $capuchino->cost() . '$' . PHP_EOL, 'yellow');
 
         $expresso = new Starbuzz\TheDrinks\ExpressoBeverage(5);
         $expresso = new Starbuzz\TheCondiments\WhipCondiment($expresso, 1);
         $expresso = new Starbuzz\TheCondiments\MochaCondiment($expresso, 0.9);
         $expresso = new Starbuzz\TheCondiments\MochaCondiment($expresso, 0.9);
-        echo BashColorsString::make($expresso->getDescription() . " = " . $expresso->cost() . '$' . PHP_EOL, 'yellow');
+        echo Bash::makeColor($expresso->getDescription() . " = " . $expresso->cost() . '$' . PHP_EOL, 'yellow');
 
     }
 
@@ -163,7 +171,7 @@ class Application
     public static function commandApp()
     {
         $remote = new CMD\RealRemoteControl();
-        echo BashColorsString::make("Example for full feature of command pattern:" . PHP_EOL, 'yellow');
+        echo Bash::makeColor("Example for full feature of command pattern:" . PHP_EOL, 'yellow');
 
         $ceilingFan = new CMD\ExternalDevices\CeilingFan("Living Room");
         $fanHightCommand = new CMD\ImplementedCommands\CeilingFan\CeilingFanHightCommand($ceilingFan);
@@ -174,20 +182,20 @@ class Application
         $remote->setCommand(1, $fanHightCommand, $fanOffCommand);
         $remote->setCommand(2, $fanLowCommand, $fanOffCommand);
 
-        echo BashColorsString::make("On pressed at 0." . PHP_EOL, 'brown');
+        echo Bash::makeColor("On pressed at 0." . PHP_EOL, 'brown');
         $remote->onButtonWasPressed(0);
-        echo BashColorsString::make("Off pressed at 0." . PHP_EOL, 'brown');
+        echo Bash::makeColor("Off pressed at 0." . PHP_EOL, 'brown');
         $remote->offButtonWasPressed(0);
-        echo BashColorsString::make("Undoing ..." . PHP_EOL, 'brown');
+        echo Bash::makeColor("Undoing ..." . PHP_EOL, 'brown');
         $remote->undoButtonWasPressed();
-        echo BashColorsString::make("On pressed at 1." . PHP_EOL, 'brown');
+        echo Bash::makeColor("On pressed at 1." . PHP_EOL, 'brown');
         $remote->onButtonWasPressed(1);
-        echo BashColorsString::make("Undoing ..." . PHP_EOL, 'brown');
+        echo Bash::makeColor("Undoing ..." . PHP_EOL, 'brown');
         $remote->undoButtonWasPressed();
 
-        echo BashColorsString::make("---END." . PHP_EOL . PHP_EOL, 'yellow');
+        echo Bash::makeColor("---END." . PHP_EOL . PHP_EOL, 'yellow');
 
-        echo BashColorsString::make("Example for macro command:" . PHP_EOL, 'yellow');
+        echo Bash::makeColor("Example for macro command:" . PHP_EOL, 'yellow');
 
         
         $light = new CMD\ExternalDevices\Light("Living Room");
@@ -207,13 +215,13 @@ class Application
         $macroOff = new CMD\ImplementedCommands\MacroCommand([$lightOff, $garageDoorClose, $stereoOff]);
 
         $remote->setCommand(0, $macroOn, $macroOff);
-        echo BashColorsString::make("On pressed." . PHP_EOL, 'brown');
+        echo Bash::makeColor("On pressed." . PHP_EOL, 'brown');
         $remote->onButtonWasPressed(0);
-        echo BashColorsString::make("Off pressed." . PHP_EOL, 'brown');
+        echo Bash::makeColor("Off pressed." . PHP_EOL, 'brown');
         $remote->offButtonWasPressed(0);
-        echo BashColorsString::make("Undoing ..." . PHP_EOL, 'brown');
+        echo Bash::makeColor("Undoing ..." . PHP_EOL, 'brown');
         $remote->undoButtonWasPressed();
-        echo BashColorsString::make("---END." . PHP_EOL . PHP_EOL , 'yellow');
+        echo Bash::makeColor("---END." . PHP_EOL . PHP_EOL , 'yellow');
 
         
 //
@@ -253,7 +261,7 @@ class Application
     public static function adapterAndFacadeApp()
     {
         //adapter
-        echo BashColorsString::make("Adapter pattern: " . PHP_EOL, 'brown');
+        echo Bash::makeColor("Adapter pattern: " . PHP_EOL, 'brown');
 
         $duckMethod = function($duck) {
             if ($duck instanceof \DesignPatterns\AdapterAndFacade\Adapter\DuckInterface) {
@@ -279,31 +287,31 @@ class Application
         $dogAdapter = new \DesignPatterns\AdapterAndFacade\Adapter\DogAdapter($bDog);
 
 
-        BashColorsString::make("The Wild Turkey says..." . PHP_EOL, 'yellow');
+        Bash::makeColor("The Wild Turkey says..." . PHP_EOL, 'yellow');
         $wTurkey->gobble();
         $wTurkey->fly();
         echo PHP_EOL;
 
-        BashColorsString::make("The Black Dog says..." . PHP_EOL, 'yellow');
+        Bash::makeColor("The Black Dog says..." . PHP_EOL, 'yellow');
         $bDog->gogo();
         $bDog->jump();
         echo PHP_EOL;
 
-        BashColorsString::make("The Mallard Duck says..." . PHP_EOL, 'yellow');
+        Bash::makeColor("The Mallard Duck says..." . PHP_EOL, 'yellow');
         $duckMethod($mDuck);
         echo PHP_EOL;
 
-        BashColorsString::make("The Turkey Adapter says..." . PHP_EOL, 'yellow');
+        Bash::makeColor("The Turkey Adapter says..." . PHP_EOL, 'yellow');
         $duckMethod($turkeyAdapter);
         echo PHP_EOL;
 
-        BashColorsString::make("The Black Dog says..." . PHP_EOL, 'yellow');
+        Bash::makeColor("The Black Dog says..." . PHP_EOL, 'yellow');
         $duckMethod($dogAdapter);
         echo PHP_EOL;
 
 
         //facade
-        echo BashColorsString::make("Facade pattern: " . PHP_EOL, 'brown');
+        echo Bash::makeColor("Facade pattern: " . PHP_EOL, 'brown');
         $amplifier = new HTS\Amplifer("ThangTD Amplifier");
         $tuner = new HTS\Tuner("Top Of Line Tuner", $amplifier);
         $dvd = new HTS\DvdPlayer("Disney 3.0 DVD", $amplifier);
@@ -331,10 +339,52 @@ class Application
     {
         $coffee = new \DesignPatterns\TemplateMethod\Coffee();
         $tea = new \DesignPatterns\TemplateMethod\Tea();
-        echo BashColorsString::make("Coffee with hook" . PHP_EOL, 'yellow');
+        echo Bash::makeColor("Coffee with hook" . PHP_EOL, 'yellow');
         $coffee->prepareRecipe();
-        echo BashColorsString::make("Tea with hook" . PHP_EOL, 'yellow');
+        echo Bash::makeColor("Tea with hook" . PHP_EOL, 'yellow');
         $tea->prepareRecipe();
+    }
+
+    public static function iteratorAndCompositeApp()
+    {
+        //iterator
+        /*
+        $pankageMenu = new \DesignPatterns\IteratorAndComposite\Iterator\PancakeHouseMenu();
+        $dinnerMenu = new \DesignPatterns\IteratorAndComposite\Iterator\DinnerMenu();
+
+        $menuVector = new \OOPCore\ArrayObject\Vector();
+        $menuVector->addElement($pankageMenu);
+        $menuVector->addElement($dinnerMenu);
+
+        $waitress = new \DesignPatterns\IteratorAndComposite\Iterator\Waitress($menuVector);
+
+        $waitress->printMenu();
+        */
+
+        //iterator and composite
+        $breakfast = new Menu("PankageHouse breakfast menu");
+        $dinner = new Menu("Dinner menu");
+        $dinnerDesert = new Menu("Dinner dessert menu");
+
+        //super menu
+        $allMenus = new Menu("All Menus");
+        $allMenus->add($dinner);
+        $allMenus->add($breakfast);
+
+        $dinner->add(new MenuItem("Pasta", true, 3));
+        $dinner->add(new MenuItem("Spagetti", true, 4));
+        //nest submenu to dinner menu
+        $dinner->add($dinnerDesert);
+        $dinnerDesert->add(new MenuItem("Apple Pie", true, 1.6));
+        $dinnerDesert->add(new MenuItem("Pink Wine", true, 1.6));
+
+        $breakfast->add(new MenuItem("Break egg", true, 2));
+
+        $waitress = new \DesignPatterns\IteratorAndComposite\Composite\WaitressV2($allMenus);
+        $waitress->printMenu();
+
+        //TODO make iterator composite
+
 
     }
 

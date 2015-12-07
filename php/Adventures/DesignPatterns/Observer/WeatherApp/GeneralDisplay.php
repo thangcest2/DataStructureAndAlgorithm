@@ -16,7 +16,7 @@ namespace DesignPatterns\Observer\WeatherApp;
 use OOPCore\Object;
 use DesignPatterns\Observer\Observer\Core\Publisher;
 use DesignPatterns\Observer\Observer\Core\ObserverInterface;
-use Utilities\BashColorsString;
+use Utilities\Bash;
 
 /**
  * @class GeneralDisplay
@@ -45,7 +45,7 @@ class GeneralDisplay extends Object implements ObserverInterface, DisplayInterfa
 
     public function display()
     {
-        echo BashColorsString::make(sprintf("Wheather detail: %s temprature, %s humidity, %s pressure.", $this->_temprature . "%", $this->_humidity, $this->_pressure) . PHP_EOL, 'yellow');
+        echo Bash::makeColor(sprintf("Wheather detail: %s temprature, %s humidity, %s pressure.", $this->_temprature . "%", $this->_humidity, $this->_pressure) . PHP_EOL, 'yellow');
     }
 
     /**

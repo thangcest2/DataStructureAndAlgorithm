@@ -20,7 +20,7 @@ use DesignPatterns\AdapterAndFacade\Facade\HomeTheaterSystem\Projector;
 use DesignPatterns\AdapterAndFacade\Facade\HomeTheaterSystem\Screen;
 use DesignPatterns\AdapterAndFacade\Facade\HomeTheaterSystem\Tuner;
 use DesignPatterns\AdapterAndFacade\Facade\HomeTheaterSystem\TheaterLights;
-use Utilities\BashColorsString;
+use Utilities\Bash;
 
 /**
 * @class HomeTheaterFacade
@@ -49,7 +49,7 @@ class HomeTheaterFacade
 
     public function watchMovie($movie)
     {
-        echo BashColorsString::make(" Ready to watch movie ... " . PHP_EOL, 'yellow');
+        echo Bash::makeColor(" Ready to watch movie ... " . PHP_EOL, 'yellow');
         $this->_popper->on();
         $this->_popper->pop();
 
@@ -72,7 +72,7 @@ class HomeTheaterFacade
 
     public function endMovie()
     {
-        echo BashColorsString::make(" Shutting Movie Theater down ... " . PHP_EOL, 'yellow');
+        echo Bash::makeColor(" Shutting Movie Theater down ... " . PHP_EOL, 'yellow');
         $this->_popper->off();
         $this->_light->on();
         $this->_screen->up();

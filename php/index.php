@@ -20,14 +20,14 @@ $loader->registerNamespaces([
 require PHP_BASE_PATH . '/Adventures/Application.php';
 require PHP_BASE_PATH . '/Utilities/Functions.php';
 
-//echo Utilities\BashColorsString::make("Type your app name, one of: " . PHP_EOL, 'red');
+//echo Utilities\Bash::makeColor("Type your app name, one of: " . PHP_EOL, 'red');
 //$listApps = [
 //    'observer',
 //    'strategy',
 //    'di',
 //    'decorator',
 //];
-//echo Utilities\BashColorsString::make(implode("\n", $listApps) . PHP_EOL, 'yellow');
+//echo Utilities\Bash::makeColor(implode("\n", $listApps) . PHP_EOL, 'yellow');
 
 //$stdin = fopen('php://stdin', 'r');
 
@@ -36,7 +36,7 @@ require PHP_BASE_PATH . '/Utilities/Functions.php';
 //$stderr = fopen('php://stderr', 'w');
 
 if (!isset($argv[1])) {
-    echo \Utilities\BashColorsString::make("Type app you want to see. In list of:" . PHP_EOL, \Utilities\BashColorsString::LIGHT_GRAY);
+    echo \Utilities\Bash::makeColor("Type app you want to see. In list of:" . PHP_EOL, \Utilities\Bash::LIGHT_GRAY);
     $list = \Utilities\SmartDirectory::directSubDirs('/Users/thangcest2/DataStructureAndAlgorithm/php/Adventures/DesignPatterns');
     foreach ($list as $l) {
         if ($l == 'DependencyInjection') {

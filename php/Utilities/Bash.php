@@ -2,7 +2,7 @@
 
 namespace Utilities;
 
-class BashColorsString
+class Bash
 {
     const BLACK = 'black';
     const RED = 'red';
@@ -52,7 +52,7 @@ class BashColorsString
         self::LIGHT_GRAY => '47',
     );
 
-    public static function make($string, $foregroundColor = null, $background_color = null)
+    public static function makeColor($string, $foregroundColor = null, $background_color = null)
     {
         $coloredString = "";
         if (isset(self::$foregroundColors[$foregroundColor])) {
@@ -70,16 +70,5 @@ class BashColorsString
 
         return $coloredString;
     }
-
-    public static function foregroundColors()
-    {
-        var_dump(self::$foregroundColors);
-    }
-
-    public static function backgroundColors()
-    {
-        var_dump(self::$backgroundColors);
-    }
-
 
 }

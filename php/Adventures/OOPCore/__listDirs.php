@@ -7,8 +7,21 @@
 
 return [
     'ArrayObject' => [
-        'Collection',
+        'CollectionAbstract',
+        'CollectionInterface',
         'Vector',
+        'Stack',
+        'Queue',
+        'LinkedList',
+    ],
+    'Exception' => [
+        'IllegalStateException',
+        'UnsupportedOperationException',
+    ],
+    'Iterator' => [
+        'NullIterator',
+        'IteratorInterface',
+        'IteratorCreatorInterface',
     ],
     'Object',
     'Trait',

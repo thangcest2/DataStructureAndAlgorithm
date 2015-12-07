@@ -12,41 +12,17 @@
  +------------------------------------------------------------------------+
 */
 
-namespace DesignPatterns\Factory\PizzaStore;
+namespace OOPCore\Iterator;
 
-use Utilities\Bash;
+/**
+* @interface IteratorCreatorInterface
+*/
 
-abstract class PizzaStoreFactoryAbstract {
-
+interface IteratorCreatorInterface extends \IteratorAggregate
+{
     /**
-     * @var PizzaAbstract
+     * @return IteratorInterface
      */
-    private $_pizza;
-
-    /**
-     * @param string $type
-     * @return PizzaAbstract
-     */
-    protected abstract function createPizza($type);
-
-    public final function orderPizza($type) {
-        $this->_pizza = $this->createPizza($type);
-        echo Bash::makeColor("__Making : " . $this->_pizza->getName(), Bash::YELLOW) . PHP_EOL;
-
-
-        $this->_pizza->prepare();
-
-        echo Bash::makeColor("Adding ingredients: ", Bash::BROWN) . PHP_EOL;
-        echo $this->_pizza;
-        echo PHP_EOL;
-
-        $this->_pizza->bake();
-        $this->_pizza->cut();
-        $this->_pizza->box();
-
-        return $this->_pizza;
-
-    }
-
+    public function getIterator();
 
 }

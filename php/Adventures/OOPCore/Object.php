@@ -8,6 +8,17 @@ class Object implements \ArrayAccess
 {
     protected $_data = [];
 
+    public function setData($key = null, $data = null)
+    {
+        if ($key === null) {
+            $this->_data = $data;
+        } else {
+            $this->_data[$key] = $data;
+        }
+
+        return $this;
+    }
+
     public function equals(Object $o)
     {
         return ($this === $o);
@@ -53,7 +64,6 @@ class Object implements \ArrayAccess
             case 'has' :
                 return array_key_exists(lcfirst(substr($name,3)), $this->_data);
         }
-
     }
 
     public function __unset($name) {
