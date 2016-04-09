@@ -37,7 +37,7 @@ This repo requires:
 
 ------------------
 
-####php/Services: 
+####php/Adventure/Services: 
 *The common services/technologies for high level web development*
 
 ------------------
@@ -81,8 +81,8 @@ This repo requires:
 # Current Folder Structure:
 ```
 php
-├── Adventures
-│   ├── DesignPatterns
+├── ###Adventures
+│   ├── ######DesignPatterns
 │   │   ├── AdapterAndFacade
 │   │   │   ├── Adapter
 │   │   │   └── Facade
@@ -151,12 +151,12 @@ php
 │   │   ├── State
 │   │   ├── Strategy
 │   │   └── TemplateMethod
-│   ├── OOPCore
+│   ├── ######OOPCore
 │   │   ├── ArrayObject
 │   │   ├── Exception
 │   │   │   └── Stack
 │   │   └── Iterator
-│   └── Services
+│   └── ######Services
 │       ├── Autoload
 │       ├── Debugging
 │       │   └── Xdebug
