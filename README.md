@@ -5,7 +5,8 @@ Welcome ;)
 ### This repo is aim for 2 parts:
 - A library of core stuffs for PHP, such as concept/core of design patterns, that go across every frameworks
 - Practises/relax codes
-- If something I goes wrong, I hope some people can really join or indicates me what's incorrect
+
+If something I goes wrong, I hope some people can really join or indicates me what's incorrect
 
 
 ### Note:
@@ -81,8 +82,8 @@ This repo requires:
 # Current Folder Structure:
 ```
 php
-├── ###Adventures
-│   ├── ######DesignPatterns
+├── Adventures
+│   ├── DesignPatterns
 │   │   ├── AdapterAndFacade
 │   │   │   ├── Adapter
 │   │   │   └── Facade
@@ -151,12 +152,12 @@ php
 │   │   ├── State
 │   │   ├── Strategy
 │   │   └── TemplateMethod
-│   ├── ######OOPCore
+│   ├── OOPCore
 │   │   ├── ArrayObject
 │   │   ├── Exception
 │   │   │   └── Stack
 │   │   └── Iterator
-│   └── ######Services
+│   └── Services
 │       ├── Autoload
 │       ├── Debugging
 │       │   └── Xdebug
