@@ -8,19 +8,20 @@
  | In love with my wife Mai Phuong Nguyen                                 |
  +------------------------------------------------------------------------+
  | Authors: Tran Duc Thang <thangcest2@gmail.com>                         |
- |          or             <thang.tran@tiki.vn>                           |
+ |          or             <thangcest2@gmail.com>                           |
  +------------------------------------------------------------------------+
 */
 
 namespace DesignPatterns\IteratorAndComposite\Iterator;
 use OOPCore\Exception\IllegalStateException;
 use OOPCore\Iterator\IteratorInterface;
+use OOPCore\Object;
 
 /**
 * @class DinnerMenuIterator
 */
 
-class DinnerMenuIterator implements IteratorInterface
+class DinnerMenuIterator extends Object implements IteratorInterface
 {
     /**
      * @var MenuItem[]

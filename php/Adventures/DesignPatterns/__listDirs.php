@@ -149,6 +149,7 @@ return [
         'Composite' => [
             'MenuComponentAbstract',
             'Menu',
+            'CompositeIterator',
         ],
     ],
     'Observer' => [

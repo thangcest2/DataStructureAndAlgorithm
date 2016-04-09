@@ -10,16 +10,13 @@
  * eg: ./generateFolder ../../php/Adventures/DesignPatterns/ designPatterns
  */
 
-require_once 'common.php';
+include ROOT. '/php/Utilities/Bash.php';
 
 if (!isset($argv[1])) {
     echo 'Please specify target folder path.' . PHP_EOL;
     die();
 }
-if (!isset($argv[2]) || !isset($namespaces[$argv[2]])) {
-    echo 'Please specify correct init namespace.' . PHP_EOL;
-    die();
-}
+
 $configFile = $argv[1] . '/__listDirs.php';
 
 if (!file_exists($configFile)) {
@@ -27,13 +24,12 @@ if (!file_exists($configFile)) {
     die();
 }
 
-$namespacePrefix = $namespaces[$argv[2]];
-$genDocOnly = isset($argv[3]) && $argv[3] == '1' ? true: false;
+$genDocOnly = isset($argv[2]) && $argv[2] == '1' ? true: false;
 
 $path = realpath($argv[1]) . '/';
 $dirs = require($configFile);
 
-run($dirs, $path, $namespacePrefix, $genDocOnly);
+run($dirs, $path, '', $genDocOnly);
 
 /**
  * Recursively create folder + files and subfolder + files
@@ -133,7 +129,7 @@ function appendDetails() {
  | In love with my wife Mai Phuong Nguyen                                 |
  +------------------------------------------------------------------------+
  | Authors: Tran Duc Thang <thangcest2@gmail.com>                         |
- |          or             <thang.tran@tiki.vn>                           |
+ |          or             <thangcest2@gmail.com>                           |
  +------------------------------------------------------------------------+
 */
 DETAIL;

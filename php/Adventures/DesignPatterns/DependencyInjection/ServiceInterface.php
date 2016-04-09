@@ -8,12 +8,12 @@
  | In love with my wife Mai Phuong Nguyen                                 |
  +------------------------------------------------------------------------+
  | Authors: Tran Duc Thang <thangcest2@gmail.com>                         |
- |          or             <thang.tran@tiki.vn>                           |
+ |          or             <thangcest2@gmail.com>                           |
  +------------------------------------------------------------------------+
 */
 
 /**
- * CreatedBy: thang.tran@tiki.vn
+ * CreatedBy: thangcest2@gmail.com
  * Date: 10/31/15
  * Time: 2:16 PM
  */

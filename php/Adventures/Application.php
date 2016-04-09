@@ -381,7 +381,8 @@ class Application
         $breakfast->add(new MenuItem("Break egg", true, 2));
 
         $waitress = new \DesignPatterns\IteratorAndComposite\Composite\WaitressV2($allMenus);
-        $waitress->printMenu();
+//        $waitress->printMenu();
+        $waitress->printVegeterianMenu();
 
         //TODO make iterator composite
 

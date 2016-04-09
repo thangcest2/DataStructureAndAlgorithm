@@ -1,6 +1,6 @@
 <?php
 /**
- * CreatedBy: thang.tran@tiki.vn
+ * CreatedBy: thangcest2@gmail.com
  * Date: 11/4/15
  * Time: 11:19 AM
  */

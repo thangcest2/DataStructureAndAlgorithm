@@ -8,12 +8,13 @@
  | In love with my wife Mai Phuong Nguyen                                 |
  +------------------------------------------------------------------------+
  | Authors: Tran Duc Thang <thangcest2@gmail.com>                         |
- |          or             <thang.tran@tiki.vn>                           |
+ |          or             <thangcest2@gmail.com>                           |
  +------------------------------------------------------------------------+
 */
 
 namespace DesignPatterns\IteratorAndComposite\Composite;
 use OOPCore\ArrayObject\Vector;
+use OOPCore\Iterator\IteratorInterface;
 use Utilities\Bash;
 
 /**
@@ -29,6 +30,11 @@ class Menu extends MenuComponentAbstract
 
     private $_name;
 
+    /**
+     * @var IteratorInterface
+     */
+    private $_iterator;
+
     public function __construct($name)
     {
         $this->_name = $name;
@@ -37,7 +43,10 @@ class Menu extends MenuComponentAbstract
 
     public function getIterator()
     {
-        return $this->_menuComponents->getIterator();
+        if ($this->_iterator === null) {
+            $this->_iterator = new CompositeIterator($this->_menuComponents->getIterator());
+        }
+        return $this->_iterator;
     }
 
     public function add(MenuComponentAbstract $menuComponentAbstract)
@@ -64,10 +73,14 @@ class Menu extends MenuComponentAbstract
         return $this->_name;
     }
 
+    public function isVegetarian()
+    {
+        return false;
+    }
+
     public function printHelper()
     {
         echo Bash::makeColor($this->_name . PHP_EOL, Bash::DARK_GRAY);
-
         $iterator = $this->_menuComponents->getIterator();
         while ($iterator->valid()) {
             /**

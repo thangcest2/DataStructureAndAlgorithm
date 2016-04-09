@@ -8,7 +8,7 @@
  | In love with my wife Mai Phuong Nguyen                                 |
  +------------------------------------------------------------------------+
  | Authors: Tran Duc Thang <thangcest2@gmail.com>                         |
- |          or             <thang.tran@tiki.vn>                           |
+ |          or             <thangcest2@gmail.com>                           |
  +------------------------------------------------------------------------+
 */
 
@@ -44,7 +44,7 @@ class MenuItem extends MenuComponentAbstract
         return $this->_name;
     }
 
-    public function getVegetarian()
+    public function isVegetarian()
     {
         return $this->_vegetarian;
     }

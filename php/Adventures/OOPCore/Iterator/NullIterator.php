@@ -1,18 +1,20 @@
 <?php
 
 /**
- * Created by thang.tran@tiki.vn
+ * Created by thangcest2@gmail.com
  * Date 12/7/15
  * Time 12:33 AM
  */
 
 namespace OOPCore\Iterator;
 
-class NullIterator implements IteratorInterface
+use OOPCore\Object;
+
+class NullIterator extends Object implements IteratorInterface
 {
     public function next()
     {
-        return false;
+        return null;
     }
 
     public function remove()

@@ -8,7 +8,7 @@
  | In love with my wife Mai Phuong Nguyen                                 |
  +------------------------------------------------------------------------+
  | Authors: Tran Duc Thang <thangcest2@gmail.com>                         |
- |          or             <thang.tran@tiki.vn>                           |
+ |          or             <thangcest2@gmail.com>                           |
  +------------------------------------------------------------------------+
 */
 
@@ -112,9 +112,9 @@ class Vector extends CollectionAbstract
     public function removeElementAt($index)
     {
         if ($index >= $this->_elementCount) {
-            throw new \OutOfBoundsException($index . " >= " . $this->_elementCount);
+            throw new \OutOfBoundsException($index . " index >= " . $this->_elementCount);
         } else if ($index < 0) {
-            throw new \OutOfBoundsException($index);
+            throw new \OutOfBoundsException("$index index < 0");
         }
 
         for ($i = $index+1; $i < $this->_elementCount; $i++) {
@@ -218,7 +218,7 @@ class Vector extends CollectionAbstract
 
 }
 
-class VectorIterator implements IteratorInterface {
+class VectorIterator extends Object implements IteratorInterface {
     /**
      * @var Vector
      */

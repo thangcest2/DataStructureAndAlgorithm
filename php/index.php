@@ -2,9 +2,7 @@
 /**
  * Date: 7/2/15
  * Time: 9:46 PM
- * @property index.php $index.php
  */
-
 define('PHP_BASE_PATH', dirname(__FILE__));
 
 $loader = new Phalcon\Loader();
@@ -20,20 +18,6 @@ $loader->registerNamespaces([
 require PHP_BASE_PATH . '/Adventures/Application.php';
 require PHP_BASE_PATH . '/Utilities/Functions.php';
 
-//echo Utilities\Bash::makeColor("Type your app name, one of: " . PHP_EOL, 'red');
-//$listApps = [
-//    'observer',
-//    'strategy',
-//    'di',
-//    'decorator',
-//];
-//echo Utilities\Bash::makeColor(implode("\n", $listApps) . PHP_EOL, 'yellow');
-
-//$stdin = fopen('php://stdin', 'r');
-
-//fscanf(STDIN, "%d\n", $number);
-//$stdout = fopen('php://stdout', 'w');
-//$stderr = fopen('php://stderr', 'w');
 
 if (!isset($argv[1])) {
     echo \Utilities\Bash::makeColor("Type app you want to see. In list of:" . PHP_EOL, \Utilities\Bash::LIGHT_GRAY);

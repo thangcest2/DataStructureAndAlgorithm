@@ -1,15 +1,76 @@
-# Data Structure And Algorithm
+# PHP Design Patterns + Data Structure And Algorithm
 
-This repo contains my exercises as self-learning process I do at home.
-  - Folders are separated by programming language name: eg /php, /javascript,...
+Welcomes ;)
 
-I have started taking real adventure from today: Sat Nov  7 22:09:25 ICT 2015
+### This repo is aim for 2 parts:
+- A library of core stuffs for PHP, such as concept/core of design patterns, that go across every frameworks
+- Practises/relax codes
+
+### If something I goes wrong, I hope some people can really join or indicates me what's incorrect
 
 
-ATTENTION:
+### ATTENTION:
 This repo requires:  
  - Phalcon Framework Extension: https://github.com/phalcon/cphalcon (for \Phalcon\Loader)
  
+### Short Introdution:
+
+####php/Adventure/DesignPatterns: All design patterns in PHP
+######*From the book: Head First Design Patterns - O'Reilly*
+- Some of them are new, such as Dependency Injection, MVC
+- Each pattern is written as final implement. To see result, run: php /DataStructureAndAlgorithm/php/index.php
+- Reading this book is recommended, they explained where each pattern comes from and how to combine them together
+
+- To run and see design pattern implemented result:
+`php /path/to/php/index.php`
+
+------------------
+
+####php/Adventure/Core: 
+######*Currently this folder includes Object,Vector,Collection...*
+- Object class: should be inherit by all client classes later. To have convenient of playing with its data/property
+- Vector class: refer to Vector class in Java. It's an Vector that hold objects. It provides a list of methods to play with object. 
+- Collection class: a collection of Object in array
+
+------------------
+
+####php/Services: 
+*The common services/technologies for high level web development*
+
+------------------
+
+####php/BookPractises: 
+*Book name: Cấu Trúc Dữ Liệu và Giải Thuật - tác giả Lê Minh Hoàng*
+
+- To see results, just run file, eg: `php /path/to/file`
+
+------------------
+
+####php/NiceMaths: 
+*Code for some exciting maths, including maths I have been done*
+- To see results, just run file, eg: `php /path/to/file`
+
+------------------
+
+####php/ShellGames: 
+*Used to make code generator, such as generate doc, generate files..., this file is also generated.*
+- To generate folder (when you can imagined what folder/file you are intending to create):
+
+`Create folder/file array of keys=>values in __listDirs.php file`
+
+--> run
+ 
+`php /path/to/php/ShellGames/generateFolder $argv1 $argv2`
+
+`($argv1: /path/to/__listDirs.php)`
+`($argv2: =1 to generate passive header docs template for all php files under current folder`
+------------------
+
+####php/Utilities: 
+*Contains classes with static methods to quickly give convenients of handling issues*
+
+------------------
+````````````````````````````````````````````````
 
 ### Current Folder Structure:
 
@@ -114,43 +175,4 @@ php
 └── Utilities
 
 ```
-
-
-
-
-------------------
-
-####php/Adventure/DesignPatterns: 
-######*From the book: Head First Design Patterns - O'Reilly*
-- Some of them are new, such as Dependency Injection, MVC
-- Each pattern is written as final implement. To see result, run: php /DataStructureAndAlgorithm/php/index.php
-- Reading this book is recommended, they explained where each pattern comes from and how to combine them together
-
-------------------
-
-####php/Adventure/Core: 
-######*Currently this folder includes Object,Vector,Collection*
-- Object class: should be inherit by all client classes later. To have convenient of playing with its data/property
-- Vector class: refer to Vector class in Java. It's an Vector that hold objects. It provides a list of methods to play with object. 
-- Collection class: a collection of Object in array
-
-------------------
-
-####php/BookPractises: 
-*Book name: Cấu Trúc Dữ Liệu và Giải Thuật - tác giả Lê Minh Hoàng*
-
-------------------
-
-####php/InterviewJorkes: 
-*For all 'jorke' tests from my interviews*
-
-------------------
-
-####php/ShellGames: 
-*Used to make code generator, such as generate doc, generate files..., this file is also generated.*
-
-------------------
-
-####php/Utilities: 
-*Contains classes with static methods to quickly give convenients of handling issues*
 

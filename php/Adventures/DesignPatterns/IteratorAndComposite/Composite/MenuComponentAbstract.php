@@ -8,13 +8,14 @@
  | In love with my wife Mai Phuong Nguyen                                 |
  +------------------------------------------------------------------------+
  | Authors: Tran Duc Thang <thangcest2@gmail.com>                         |
- |          or             <thang.tran@tiki.vn>                           |
+ |          or             <thangcest2@gmail.com>                           |
  +------------------------------------------------------------------------+
 */
 
 namespace DesignPatterns\IteratorAndComposite\Composite;
 use OOPCore\Exception\UnsupportedOperationException;
 use OOPCore\Iterator\IteratorCreatorInterface;
+use OOPCore\Iterator\IteratorInterface;
 use OOPCore\Object;
 
 /**
@@ -42,6 +43,9 @@ abstract class MenuComponentAbstract extends Object implements IteratorCreatorIn
         throw new UnsupportedOperationException();
     }
 
+    /**
+     * @return IteratorInterface
+     */
     public abstract function getIterator();
 
     //operation methods

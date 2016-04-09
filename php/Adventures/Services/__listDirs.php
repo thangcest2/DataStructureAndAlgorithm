@@ -1,6 +1,6 @@
 <?php
 /**
- * CreatedBy: thang.tran@tiki.vn
+ * CreatedBy: thangcest2@gmail.com
  * Date: 10/19/15
  * Time: 10:11 AM
  */
@@ -14,7 +14,7 @@ return [
         'Compressed' => [],
     ],
     'Searching' => [
-        'Solr' => ['index.php'],
+        'Solr' => ['index'],
         'ElasticSearch' => [],
     ],
     'Task' => [
@@ -28,6 +28,9 @@ return [
             'Profile' => [],
             'Trace' => [],
         ],
+    ],
+    'Logging' => [
+
     ]
 
 ];
