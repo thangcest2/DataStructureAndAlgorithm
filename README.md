@@ -1,17 +1,19 @@
 # PHP Design Patterns + Data Structure And Algorithm
 
-Welcomes ;)
+Welcome ;)
 
 ### This repo is aim for 2 parts:
 - A library of core stuffs for PHP, such as concept/core of design patterns, that go across every frameworks
 - Practises/relax codes
+- If something I goes wrong, I hope some people can really join or indicates me what's incorrect
 
-### If something I goes wrong, I hope some people can really join or indicates me what's incorrect
 
-
-### ATTENTION:
+### Note:
 This repo requires:  
  - Phalcon Framework Extension: https://github.com/phalcon/cphalcon (for \Phalcon\Loader)
+ 
+ 
+ 
  
 ### Short Introdution:
 
@@ -62,17 +64,18 @@ This repo requires:
  
 `php /path/to/php/ShellGames/generateFolder $argv1 $argv2`
 
-`($argv1: /path/to/__listDirs.php)`
-`($argv2: =1 to generate passive header docs template for all php files under current folder`
+`($argv1: '/path/to/__listDirs.php', $argv2: '=1 to generate passive header docs template for all php files under current folder'`
 ------------------
 
 ####php/Utilities: 
 *Contains classes with static methods to quickly give convenients of handling issues*
 
 ------------------
+
 ````````````````````````````````````````````````
 
 ### Current Folder Structure:
+
 
 ```
 php
