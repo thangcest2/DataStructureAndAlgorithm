@@ -74,14 +74,12 @@ This repo requires:
 ####php/Utilities: 
 *Contains classes with static methods to quickly give convenients of handling issues*
 
+
+
 ------------------
 
-````````````````````````````````````````````````
-
-
-### Current Folder Structure:
+# Current Folder Structure:
 ```
-
 php
 ├── Adventures
 │   ├── DesignPatterns
@@ -200,6 +198,7 @@ php
             └── spec
 
 ```
+
 
 
 ### Thanks.
