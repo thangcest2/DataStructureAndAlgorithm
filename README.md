@@ -14,7 +14,8 @@ This repo requires:
  
  
  
- 
+------------------
+
 ### Short Introdution:
 
 ####php/Adventure/DesignPatterns: All design patterns in PHP
@@ -64,7 +65,10 @@ This repo requires:
  
 `php /path/to/php/ShellGames/generateFolder $argv1 $argv2`
 
-`($argv1: '/path/to/__listDirs.php', $argv2: '=1 to generate passive header docs template for all php files under current folder'`
+`$argv1: /path/to/__listDirs.php`
+ 
+`$argv2: =1 to generate passive header docs template for all php files under current folder`
+
 ------------------
 
 ####php/Utilities: 
@@ -74,10 +78,10 @@ This repo requires:
 
 ````````````````````````````````````````````````
 
+
 ### Current Folder Structure:
-
-
 ```
+
 php
 ├── Adventures
 │   ├── DesignPatterns
@@ -116,6 +120,7 @@ php
 │   │   │               ├── Pepperoni
 │   │   │               └── Saunce
 │   │   ├── IteratorAndComposite
+│   │   │   ├── Composite
 │   │   │   └── Iterator
 │   │   ├── LeftOvers
 │   │   │   ├── Bridge
@@ -151,6 +156,7 @@ php
 │   ├── OOPCore
 │   │   ├── ArrayObject
 │   │   ├── Exception
+│   │   │   └── Stack
 │   │   └── Iterator
 │   └── Services
 │       ├── Autoload
@@ -159,7 +165,9 @@ php
 │       │       ├── Debug
 │       │       ├── Profile
 │       │       └── Trace
-│       ├── ErrorHandler
+│       ├── Logging
+│       ├── MessageBroker
+│       │   └── RabbitMQ
 │       ├── Performance
 │       │   ├── Compressed
 │       │   ├── Memcached
@@ -173,9 +181,25 @@ php
 │           ├── Gearman
 │           └── RabbitMQ
 ├── BookPractises
-├── InterviewJorkes
+├── NiceMaths
 ├── ShellGames
-└── Utilities
+├── Utilities
+└── vendor
+    ├── composer
+    └── php-amqplib
+        └── php-amqplib
+            ├── PhpAmqpLib
+            │   ├── Channel
+            │   ├── Connection
+            │   ├── Exception
+            │   ├── Helper
+            │   │   └── Protocol
+            │   ├── Message
+            │   └── Wire
+            │       └── IO
+            └── spec
 
 ```
 
+
+### Thanks.
