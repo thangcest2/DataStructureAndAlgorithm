@@ -1,0 +1,38 @@
+[group:task_queues]
+programs=task_queue_node1,task_queue_node2,task_queue_node3,task_queue_node4
+
+[program:task_queue_node1]
+command=/usr/local/bin/php worker.php
+directory=/Users/thangcest2/DataStructureAndAlgorithm/php/Adventures/Services/MessageBroker/RabbitMQ
+autostart=true
+autorestart=true
+redirect_stderr=true
+stdout_logfile=/Users/thangcest2/DataStructureAndAlgorithm/php/Adventures/Services/MessageBroker/RabbitMQ/debug/task_queue_node1.out.log
+stderr_logfile=/Users/thangcest2/DataStructureAndAlgorithm/php/Adventures/Services/MessageBroker/RabbitMQ/debug/task_queue_node1.err.log
+
+[program:task_queue_node2]
+command=/usr/local/bin/php worker.php
+directory=/Users/thangcest2/DataStructureAndAlgorithm/php/Adventures/Services/MessageBroker/RabbitMQ
+autostart=true
+autorestart=true
+redirect_stderr=true
+stdout_logfile=/Users/thangcest2/DataStructureAndAlgorithm/php/Adventures/Services/MessageBroker/RabbitMQ/debug/task_queue_node2.out.log
+stderr_logfile=/Users/thangcest2/DataStructureAndAlgorithm/php/Adventures/Services/MessageBroker/RabbitMQ/debug/task_queue_node2.err.log
+
+[program:task_queue_node3]
+command=/usr/local/bin/php worker.php
+directory=/Users/thangcest2/DataStructureAndAlgorithm/php/Adventures/Services/MessageBroker/RabbitMQ
+autostart=true
+autorestart=true
+redirect_stderr=true
+stdout_logfile=/Users/thangcest2/DataStructureAndAlgorithm/php/Adventures/Services/MessageBroker/RabbitMQ/debug/task_queue_node3.out.log
+stderr_logfile=/Users/thangcest2/DataStructureAndAlgorithm/php/Adventures/Services/MessageBroker/RabbitMQ/debug/task_queue_node3.err.log
+
+[program:task_queue_node4]
+command=/usr/local/bin/php worker.php
+directory=/Users/thangcest2/DataStructureAndAlgorithm/php/Adventures/Services/MessageBroker/RabbitMQ
+autostart=true
+autorestart=true
+redirect_stderr=true
+stdout_logfile=/Users/thangcest2/DataStructureAndAlgorithm/php/Adventures/Services/MessageBroker/RabbitMQ/debug/task_queue_node4.out.log
+stderr_logfile=/Users/thangcest2/DataStructureAndAlgorithm/php/Adventures/Services/MessageBroker/RabbitMQ/debug/task_queue_node4.err.log

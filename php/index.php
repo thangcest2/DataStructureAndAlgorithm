@@ -21,7 +21,7 @@ require PHP_BASE_PATH . '/Utilities/Functions.php';
 
 if (!isset($argv[1])) {
     echo \Utilities\Bash::makeColor("Type app you want to see. In list of:" . PHP_EOL, \Utilities\Bash::LIGHT_GRAY);
-    $list = \Utilities\SmartDirectory::directSubDirs('/Users/thangcest2/DataStructureAndAlgorithm/php/Adventures/DesignPatterns');
+    $list = \Utilities\SmartDirectory::directSubDirs(PHP_BASE_PATH . '/Adventures/DesignPatterns');
     foreach ($list as $l) {
         if ($l == 'DependencyInjection') {
             $l = 'di';

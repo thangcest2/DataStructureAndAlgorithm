@@ -1,0 +1,79 @@
+/**
+* Created At 8/25/16.
+*/
+<html>
+<body></body>
+<script type="text/javascript">
+  function primeSum(n, k) {
+    return (new PrimeSumClass(n, k)).isPrimeSum();
+  }
+
+  function PrimeSumClass(n, k) {
+    var _flag = false;
+
+    this.isPrimeSum = function () {
+       if (k == 0) {
+         return false;
+       }
+      if (k == 1) {
+        return isPrime(n);
+      }
+
+      var primesOfN = getPrimes(n);
+      var resPlate = [];
+      loop(n, k, primesOfN, resPlate, _flag);
+      return _flag;
+    };
+
+    function loop(n, k, primes, resPlate) {
+      for (var i = 0; i < primes.length; i++) {
+        if (n >= primes[i]) {
+          resPlate[k] = primes[i];
+          if (k == 1) {
+            if (n == sumArr(resPlate)) {
+              _flag = true;
+              return;
+            }
+          } else {
+            loop(n, k - 1, primes, resPlate);
+          }
+        }
+      }
+    }
+
+    function sumArr(arr) {
+      return arr.reduce(function (pre, next) {
+        return pre + next;
+      })
+    }
+
+    function getPrimes(n) {
+      var res = [];
+      for (var i = 2; i <= n; i++) {
+        if (i == 2) {
+          res.push(i);
+        } else {
+          if (isPrime(i)) {
+            res.push(i);
+          }
+        }
+      }
+      return res;
+    }
+
+    function isPrime(i) {
+      if (i <= 1) return false;
+      for (var j = 2; j <= Math.sqrt(i); j++) {
+        if (i % j == 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+  }
+
+
+</script>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function imageTruncation(image, threshold) {
+    for (var i = 0; i < image.length; i++) {
+      for (var j = 0; j < image[i].length ; j++) {
+        if (image[i][j] > threshold) {
+          image[i][j] = threshold;
+        }
+      }
+    }
+    return image;
+  }
+
+  var image = [[0, 100, 100], [1, 255, 103]];
+  console.log(imageTruncation(image, 102));
+</script>
+</body>
+</html>

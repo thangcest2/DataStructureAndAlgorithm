@@ -64,7 +64,7 @@ This repo requires:
 
 --> run
  
-`php /path/to/php/ShellGames/generateFolder $argv1 $argv2`
+`php php/ShellGames/generateFolder $argv1 $argv2`
 
 `$argv1: /path/to/__listDirs.php`
  

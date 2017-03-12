@@ -10,7 +10,8 @@
  * eg: ./generateFolder ../../php/Adventures/DesignPatterns/ designPatterns
  */
 
-include ROOT. '/php/Utilities/Bash.php';
+define('ROOT', dirname(dirname(dirname(__FILE__))) . '/');
+include ROOT . '' . '/php/Utilities/Bash.php';
 
 if (!isset($argv[1])) {
     echo 'Please specify target folder path.' . PHP_EOL;

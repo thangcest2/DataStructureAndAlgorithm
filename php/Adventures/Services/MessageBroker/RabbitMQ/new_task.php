@@ -22,7 +22,7 @@ $msg = new AMQPMessage($data,
 
 $channel->basic_publish($msg, '', 'task_queue');
 
-echo " [x] Sent ", $data, "\n";
+//echo " [x] Sent ", $data, "\n";
 
 echo " [x] Sent 'Hello World!'\n";
 

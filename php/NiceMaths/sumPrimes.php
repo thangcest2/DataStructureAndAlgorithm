@@ -1,9 +1,11 @@
 <?php
+//tinh tong cac k so nguyen to
+
 //This code read the necessary data form the standard input
 //$line contains the line of the input
 //echo $line . "\n";
 $timer = microtime(true);
-$k = 5000;
+$k = 10;
 function isPrimeNumber($n) {
   $m = (int)sqrt($n);
   for ($i=2;$i<=$m;$i++){
@@ -24,3 +26,5 @@ while ($k !== 0) {
 echo $sum . PHP_EOL;
 
 echo microtime(true) - $timer;
+
+

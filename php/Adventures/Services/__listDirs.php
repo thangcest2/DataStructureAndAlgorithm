@@ -6,7 +6,6 @@
  */
 
 return [
-    'Autoload' => [],
     'Performance' => [
         'Memcached' => [],
         'MongoDB' => [],
@@ -15,9 +14,11 @@ return [
     ],
     'Searching' => [
         'Solr' => ['index'],
-        'ElasticSearch' => [],
+        'ElasticSearch' => [
+            
+        ],
     ],
-    'Task' => [
+    'MessageBroker' => [
         'Gearman' => [],
         'RabbitMQ' => [],
         'Beanstalk' => [],
@@ -25,12 +26,13 @@ return [
     'Debugging' => [
         'Xdebug' => [
             'Debug' => [],
-            'Profile' => [],
+            'Profiler' => [],
             'Trace' => [],
         ],
     ],
     'Logging' => [
-
-    ]
+        'Monolog' => [],
+        'Loggy' => [],
+    ],
 
 ];
