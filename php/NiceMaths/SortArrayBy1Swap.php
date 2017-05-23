@@ -1,5 +1,5 @@
 <?php
-
+$_SERVER['XDEBUG_PROFILE'] = 1;
 /**
  * @desc check whether an array can be sorted after 1 swap or not
  * This is only solution til now:

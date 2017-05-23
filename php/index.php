@@ -3,6 +3,9 @@
  * Date: 7/2/15
  * Time: 9:46 PM
  */
+
+$_SERVER['XDEBUG_PROFILE'] = 1;
+
 define('PHP_BASE_PATH', dirname(__FILE__));
 
 $loader = new Phalcon\Loader();

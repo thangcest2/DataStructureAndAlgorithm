@@ -9,6 +9,7 @@ use DesignPatterns\AdapterAndFacade\Facade\HomeTheaterSystem as HTS;
 use \DesignPatterns\IteratorAndComposite\Composite\Menu as Menu;
 use \DesignPatterns\IteratorAndComposite\Iterator\MenuItem as MenuItem;
 
+use DesignPatterns\State\GumballMachine;
 
 class Application
 {
@@ -55,7 +56,9 @@ class Application
             case 'iteratorandcomposite' :
                 self::iteratorAndCompositeApp();
                 break;
-
+            case 'state':
+                self::stateOfThingsApp();
+                break;
 
             default :
                 echo 'No app found or not yet code :v' . PHP_EOL;
@@ -385,8 +388,20 @@ class Application
         $waitress->printVegeterianMenu();
 
         //TODO make iterator composite
-
-
     }
 
+    public static function stateOfThingsApp()
+    {
+        $gumballMachine = new GumballMachine(10);
+        echo $gumballMachine;
+
+        $gumballMachine->insertQuarter();
+        $gumballMachine->turnCrank();
+
+        echo $gumballMachine;
+
+        $gumballMachine->insertQuarter();
+        $gumballMachine->turnCrank();
+        $gumballMachine->turnCrank();
+    }
 }
