@@ -36,8 +36,6 @@ function quickSort2(&$a, $start, $end) {
       while ($a[$i] < $a[$middle]) $i++;
       while ($a[$j] > $a[$middle]) $j--;
 
-//        echo $middle . ','. $i.',' .$j;
-//      die;
       if ($i<$j){
         $temp = $a[$i];
         $a[$i] = $a[$j];
@@ -53,7 +51,7 @@ function quickSort2(&$a, $start, $end) {
 
 $a = [9,8,7,6,5];//98765 -> i=0;j=4 ->58769, i=1,j=3, 56789, i=2,j=2
 quickSort2($a,0,count($a)-1);
-var_dump($a);die;
+var_dump(implode(" -- ", $a));die;
 //
 function quicksort3(&$a, $start, $end) {
   if ($start < $end) {
