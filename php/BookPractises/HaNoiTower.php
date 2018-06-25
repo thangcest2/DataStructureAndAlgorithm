@@ -16,4 +16,4 @@ function moveDisk($n, $x, $y) {
   }
 }
 
-moveDisk(6, 1, 2);
+moveDisk(3, 1, 2);
