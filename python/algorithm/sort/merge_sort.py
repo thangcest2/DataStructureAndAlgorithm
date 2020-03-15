@@ -1,4 +1,5 @@
-from common import gen_random_array, test_sorted
+from .common import gen_random_array, test_sorted
+
 
 def merge(x, y, start, mid, end):
     p = start

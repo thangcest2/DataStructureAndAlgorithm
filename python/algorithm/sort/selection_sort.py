@@ -1,8 +1,9 @@
-from common import *
+from .common import *
 
 k = gen_random_array(10)
 
 print(k)
+
 
 def selection_sort(a):
     length = len(a)
@@ -12,6 +13,7 @@ def selection_sort(a):
             jmin = j if a[j] < a[jmin] else None
             
         a[i], a[jmin] = a[jmin], a[i] if jmin != i else None
+
 
 selection_sort(k)
 

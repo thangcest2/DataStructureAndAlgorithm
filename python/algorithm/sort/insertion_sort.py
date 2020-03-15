@@ -1,9 +1,10 @@
-from common import *
+from .common import *
 
 # k = gen_random_array(10)
 k = [62, 16, 25, 64, 4, 47, 63, 31, 90, 41]
 
 print(k)
+
 
 def insertion_sort(a):
     length = len(a)
@@ -15,6 +16,7 @@ def insertion_sort(a):
             j -= 1
 
         a[j+1] = tmp
+
 
 def insertion_with_binary_search(a):
     length = len(a)
@@ -37,6 +39,7 @@ def insertion_with_binary_search(a):
             j -= 1
         
         a[sub_sorted_start] = tmp
+
 
 # insertion_sort(k)
 insertion_with_binary_search(k)

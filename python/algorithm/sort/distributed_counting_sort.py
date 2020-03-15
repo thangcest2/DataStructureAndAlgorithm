@@ -1,6 +1,7 @@
-from common import gen_random_array, test_sorted
+from .common import gen_random_array, test_sorted
 
-def distrbuted_counting_sort(a):
+
+def distributed_counting_sort(a):
     x = {}
     length = len(a)
     c = {}
@@ -27,7 +28,7 @@ def distrbuted_counting_sort(a):
 a = [5,5,1,2,2,3,1,1,3,3]
 # a = [3, 1, 5, 2, 4, 7, 6, 9, 8, 10]
 # a = gen_random_array(1000)
-b = distrbuted_counting_sort(a)
+b = distributed_counting_sort(a)
 
 print(b)
 test_sorted(b)

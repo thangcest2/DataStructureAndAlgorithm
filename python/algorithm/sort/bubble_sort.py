@@ -1,4 +1,4 @@
-from common import *
+from .common import *
 
 a = gen_random_array(10)
 

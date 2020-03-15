@@ -4,12 +4,15 @@ class BinaryNode:
         self.right = right
         self.info = info
 
+
 class Tree:
+    @classmethod
     def preorder_traveral_visit(self, node):
         if node != None:
             print(node.info)
             self.preorder_traveral_visit(node.left)
             self.preorder_traveral_visit(node.right)
+
 
 node11 = BinaryNode(None, None, 'Sky')
 node12 = BinaryNode(None, None, 'Star')

@@ -1,4 +1,4 @@
-from common import gen_random_array, test_sorted
+from .common import gen_random_array, test_sorted
 import random
 
 a = gen_random_array(2000)
@@ -7,6 +7,7 @@ a = gen_random_array(2000)
 # a = [3, 1, 5, 2, 4]
 # a = [3, 1, 5, 2, 4, 7, 6, 9, 8, 10]
 # print(a)
+
 
 def quick_sort(a, lowest, highest):
     if lowest < highest:
@@ -30,6 +31,7 @@ def quick_sort(a, lowest, highest):
         quick_sort(a, lowest, j)
         quick_sort(a, i, highest)
         
+
 print('*' * 100)
 quick_sort(a, 0, len(a) - 1)
 print('*' * 100)
